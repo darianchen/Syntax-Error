@@ -26,13 +26,7 @@ h1{
     margin-bottom: 25px;
 }
 
-#list-items{
-    display: inline;
-}
 
-.item{
-    margin-bottom: 20px;
-}
 
 .signup-form{
     display: flex;
@@ -52,15 +46,22 @@ h1{
     box-shadow: 0 0 10px 1px #ccc;
 }
 
-.svg-icon{
-    vertical-align: middle;
-    margin-right: 5px;
+ul{
+    display: flex;
+    flex-direction: column;
 }
 
-.item{
-    fill: #0a95ff;
+#item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
+.signup-svg{
+    
+    align-items: center;
+    margin-right: 10px;
+}
 
 .login-button:hover{
     background-color: #0074CC;

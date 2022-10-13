@@ -7,11 +7,10 @@ const SplashPage = () => {
     const sessionUser = useSelector(state => state.session.user)
 
     if (sessionUser === null){
+ 
         return(
             <>
-                <div className="splash-container">
-                    <h1>Splash</h1>
-                </div>
+   
             </>
         )
     }
