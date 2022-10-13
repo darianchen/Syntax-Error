@@ -1,0 +1,134 @@
+.navbar{
+    display: flex;
+    background-color: #F8F9F9;
+    justify-content: center;
+    height: 50px;
+    position: sticky;
+    border-top: 3px solid #F48225;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.whole-container{
+    display: flex;
+}
+
+.first-container{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.firstcontainerchild {
+    flex: 1 0 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.first-container div:first-child{
+    width: 50px;
+    height: 51px;
+}
+
+.about:hover{
+    border-radius: 50px;
+    width: 50%;
+    background-color: #e3e6e8;
+}
+
+.products:hover{
+    border-radius: 50px;
+    width: 50%;
+    background-color: #e3e6e8;
+}
+
+.teams:hover{
+    border-radius: 50px;
+    width: 50%;
+    background-color: #e3e6e8;
+}
+
+
+
+.search-container{
+    display: flex;
+    height: fit-content;
+    margin-top: 7px;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.search-container input{
+    width: 400px;
+    height: 30px;    
+}
+
+.magnifying-glass{
+    padding-left: 5px;
+    cursor: text;
+    fill: #838C95;
+}
+
+.search-container{
+    border: 1px solid #bbbfc3;
+    border-radius: 3px;
+}
+
+.search-container input{
+    border: none;
+}
+
+.search-container input:focus{
+    border: none;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+.third-container{
+    margin-top: 1px;
+    margin-left: 9px;
+    width: 100%;
+}
+
+.third-container button{
+    margin-top: 6px;
+    margin-right: 3px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.nav-link{
+    color: #525960;
+}
+
+.logo:hover{
+    background-color: #e3e6e8;
+}
+
+.login{
+    background-color: #e1ecf4;
+    border-radius: 3px;
+    border: 1.5px solid #79A7C7;
+    color: #39739D;
+    box-shadow: inset 0 0.5px 0 0 white;
+}
+
+.login:hover{
+    background-color: #B3D3EA;
+}
+
+.sign-up{
+    background-color: #0a95ff;
+    color: white;
+    border-radius: 3px;
+    border: 1.5px solid #0a95ff;
+    box-shadow: inset 0 0.5px 0 0 white;
+}
+
+.sign-up:hover{
+    background-color: #0074CC;
+}
