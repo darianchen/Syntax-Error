@@ -1,6 +1,7 @@
 .signup-page{
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -26,24 +27,13 @@ h1{
     margin-bottom: 25px;
 }
 
-
+.right-content{
+    display: flex;
+    flex-direction: column;
+}
 
 .signup-form{
-    display: flex;
-    flex-direction: column;
-    display: flex;
-    flex-direction: column;
-    background-color: #FFFFFF;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    border-radius: 7px;
-    font-weight: bold;
-    margin-bottom: 25px;
-    margin-left: 9px;
-    margin-right: 9px;
-    padding-left: 25px;
-    padding-right: 25px;
-    box-shadow: 0 0 10px 1px #ccc;
+    width: 288.45px;
 }
 
 ul{
@@ -65,4 +55,13 @@ ul{
 
 .login-button:hover{
     background-color: #0074CC;
+}
+
+.su-label{
+    margin-bottom: 10px;
+}
+
+.su-input{
+    margin-bottom: 10px;
+    height: 32.5938px;
 }

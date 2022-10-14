@@ -41,33 +41,34 @@ function SignupFormPage() {
                     <div id="item"><svg className="signup-svg" width="26" height="26" ><path d="M21 4V2H5v2H1v5c0 2 2 4 4 4v1c0 2.5 3 4 7 4v3H7s-1.2 2.3-1.2 3h14.4c0-.6-1.2-3-1.2-3h-5v-3c4 0 7-1.5 7-4v-1c2 0 4-2 4-4V4h-4zM5 11c-1 0-2-1-2-2V6h2v5zm11.5 2.7l-3.5-2-3.5 1.9L11 9.8 7.2 7.5h4.4L13 3.8l1.4 3.7h4L15.3 10l1.4 3.7h-.1zM23 9c0 1-1 2-2 2V6h2v3z" fill = "#0a95ff"></path></svg><li id="list-items">Earn reputation and badges</li></div>
                 </ul>
             </div>
-            <form className="signup-form" onSubmit={handleSubmit}>
-            {errors.map(error => <li key={error}>{error}</li>)}
-                <label id="name" htmlFor="su-name">Display name</label>
-                  <input type="text" id="su-name" value={display_name} onChange={(e) => setDisplayName(e.target.value)}></input>
+            <div className="right-content">
+              <form className="signup-form credentials" onSubmit={handleSubmit}>
+              {errors.map(error => <li key={error}>{error}</li>)}
+                  <label className="su-label"htmlFor="sun">Display name</label>
+                    <input type="text" className="su-input" value={display_name} id="sun" onChange={(e) => setDisplayName(e.target.value)}></input>
 
-                <label id="email" htmlFor="su-email">Email</label>
-                  <input type="text" id="su-email"value={email} onChange={(e) => setEmail(e.target.value)} required></input>
+                  <label className="su-label" htmlFor="sul">Email</label>
+                    <input type="text" className="su-input"value={email} id="sul" onChange={(e) => setEmail(e.target.value)} required></input>
 
-                <label htmlFor="password">Password</label>
-                  <input type="password" value={password} id="password" onChange={(e) => setPassword(e.target.value)} required></input>
+                  <label className="su-label" htmlFor="sup">Password</label>
+                    <input type="password" value={password} className="su-input" id="sup" onChange={(e) => setPassword(e.target.value)} required></input>
 
-                <button className="login-button">Sign up</button>
+                  <button className="login-button sign-up-button">Sign up</button>
+              </form>
+              <div className="two-links">
+              <div>Already have an account?
+                <Link to="/login">
+                  <a href=""> Log in</a>
+                </Link>
+              </div>
+              <div>
+                Are you an employer?
+                <a href=""> Sign up on Talent</a> 
+                <svg aria-hidden="true" class="va-text-bottom sm:d-none svg-icon iconShareSm" width="14" height="14" viewBox="0 0 14 14"><path d="M5 1H3a2 2 0 0 0-2 2v8c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9h-2v2H3V3h2V1Zm2 0h6v6h-2V4.5L6.5 9 5 7.5 9.5 3H7V1Z"></path></svg>
+              </div>
+      </div>
 
-                <div className="two-links">
-                    <div>
-                        Already have an account?
-                        <Link to="/login">
-                        <a href=""> Log in</a>
-                        </Link>
-                    </div>
-
-                    <div>
-                        Are you an employer?
-                        <a href=""> Sign up on Talent</a> 
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
    </div>
    
