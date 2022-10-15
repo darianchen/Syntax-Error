@@ -135,18 +135,41 @@ h1{
     border: none;
 }
 
-.get-started-line{
-    margin-bottom: 12px;
+.get-started{
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    margin-left: 91.6719px;
+    margin-right: 91.6719px;
+    max-width: 210.667px;
+    box-sizing: border-box;
+    border-color: black;
+    margin-bottom: 12px;
+    
 }
 
 .line{
-    height: 1px;
-    width: 63px;
-    background: black;
+   border-color: black;
+   flex-basis: 33.3333333%;
+   outline-color: black;
+   outline-style: solid;
+    text-align: center;
+    vertical-align: baseline;
+    border-top-width: 1px;
 }
 
-.get-started{
+.text{
+    flex-shrink: 0;
+    padding-left: 12px;
+    padding-right: 12px;
     font-size: 12px;
+    text-align: center;
+}
+
+.animation-container{
+    display: block;
+    width: 1743px;
+    text-align: center;
+    position: relative;
 }
