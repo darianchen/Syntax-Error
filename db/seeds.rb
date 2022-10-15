@@ -26,6 +26,7 @@ ApplicationRecord.transaction do
 
     User.create!(
     # Create one user with an auto-generated display name:
+        display_name: 'test',
         email: 'test@example.com', 
         password: 'password'
     )
