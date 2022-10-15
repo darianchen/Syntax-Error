@@ -17,7 +17,7 @@ const UserPage = () => {
         <>
             <div>
                 <div>{user.email}</div>
-                <div>{user.displayName}</div>
+                <div>{user.createdAt}</div>
             </div>
         </>
     )

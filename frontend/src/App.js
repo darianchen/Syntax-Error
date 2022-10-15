@@ -4,8 +4,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import Navbar from "./components/Nav";
 import Navigation from "./components/Navigation";
 import SignupFormPage from "./components/SignupFormPage";
-import UserPage from "./components/UsersPage";
+import UserPage from "./components/UserShow";
 import SplashPage from "./components/SplashPage";
+import UsersPage from "./components/UsersIndexPage";
 
 function App() {
   return (
@@ -22,8 +23,11 @@ function App() {
           <Route path="/signup">
               <SignupFormPage />
           </Route>
-          <Route path="/users/:userId">
+          <Route exact path="/users/:userId">
               <UserPage/>
+          </Route>
+          <Route exact path="/users">
+              <UsersPage/>
           </Route>
       </Switch>
     </>
