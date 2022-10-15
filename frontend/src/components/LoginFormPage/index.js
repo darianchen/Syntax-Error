@@ -68,6 +68,9 @@ function LoginFormPage() {
 
   const handleDemo = (e) => {
     e.preventDefault();
+    document.getElementsByClassName("login-button")[0].disabled = true;
+    document.getElementById("email").disabled = true;
+    document.getElementById("password").disabled = true;
 
     let emailDOM = document.getElementById("email");
     let passwordDOM = document.getElementById("password")
