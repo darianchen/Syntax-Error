@@ -1,0 +1,152 @@
+#container{
+    max-width: 1950px;
+    box-sizing: border-box;
+    height: 1066.55px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 48px;
+    background-color: #f8f9f9;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#black-box{
+    height: 100%;
+    border-radius: 7px;
+    padding: 32px;
+    background-color: #383d43;
+}
+
+#speech-bubble-container{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 948px;
+}
+
+.speech-bubble{
+    flex-basis: 50%;
+    padding: 16px;
+    line-height: 17px;
+}
+
+#left-content{
+    display: block;
+    position: relative;
+    text-align: center;
+    padding: 24px;
+    background-color: #ffe3cd;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.glass-lock{
+    margin-bottom: 16px;
+}
+
+#right-content{
+    display: block;
+    position: relative;
+    text-align: center;
+    padding: 24px;
+    background-color: #cde9fe;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.get-started{
+    margin-bottom: 12px;
+}
+
+.speech-bubble-right-corner{
+    background-color: #ffe3cd;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    left: auto;
+    transform: scaleX(-1);
+    top: 99%;
+    display: block;
+    clip-path: polygon(18px 0, 32px 0, 0 40px, 0 38px, 0 0, 18px 0);
+    border-radius: 0 5px;
+}
+
+.speech-bubble-left-corner{
+    background-color: #cde9fe;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 0;
+    right: auto;
+    transform: scaleX(1);
+    top: 99%;
+    display: block;
+    clip-path: polygon(18px 0, 32px 0, 0 40px, 0 38px, 0 0, 18px 0);
+    border-radius: 0 5px;
+}
+
+h1{
+    font-size: 19px;
+    margin-left: 39px;
+    margin-right: 39px;
+    margin-bottom: 19px;
+    font-stretch: 100%;
+    font-weight: 400;
+    max-width: 316px;
+    line-height: 24.7px;
+}
+
+#join-community-button{
+    height: 43.3px;
+    width: 210.66px;
+    background-color: #f2740e;
+    color: white;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+}
+
+#search-content{
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+#github-button{
+    height: 44px;
+    width: 194.26px;
+    background-color: #0a95ff;
+    color: white;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+}
+
+#linkedin-button{
+    height: 44px;
+    width: 148.67px;
+    background-color: #0a95ff;
+    margin-left: 8px;
+    color: white;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+}
+
+.get-started-line{
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.line{
+    height: 1px;
+    width: 63px;
+    background: black;
+}
+
+.get-started{
+    font-size: 12px;
+}
