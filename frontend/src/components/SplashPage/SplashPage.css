@@ -88,7 +88,7 @@
     border-radius: 0 5px;
 }
 
-h1{
+.speech-h1{
     font-size: 19px;
     margin-left: 39px;
     margin-right: 39px;
@@ -168,8 +168,40 @@ h1{
 }
 
 .animation-container{
-    display: block;
-    width: 1743px;
+    font-family: "Robot Slab Bold", serif;
     text-align: center;
-    position: relative;
+    font-size: 55px;
+    color: white;
+    padding: 64px;
+}
+
+.job{
+    color: #F2740E;
+}
+
+.animation{
+    display: flex;
+    flex-direction: column;
+    animation: text-animation 2s infinite;
+    transform: translate(-15px);
+    display: inline-block;
+}
+
+@keyframes text-animation {
+    0%{
+        transform: translateY(-15px);
+    }
+    60%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.syntaxError{
+    text-decoration-line: underline;
+    text-underline-offset: 14.25px;
+    text-decoration-color: red;
+    text-decoration-style: wavy;
 }
