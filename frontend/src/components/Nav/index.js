@@ -1,74 +1,56 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import './Navbar.css'
 import logo from '../../images/syntaxErrorLogo.png'
-import BurgerMenu from "../BurgerMenu/index.js";
-
+import BurgerMenu from "../BurgerMenuComponent/index.js";
+import { useDispatch, useSelector } from "react-redux";
+import * as sessionActions from "../../store/session";
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user);
+    let sessionLink;
+    let signUpLink;
 
+    const handleLogOut = () => {
+        dispatch(sessionActions.logout(sessionUser.id))
+        return history.push('/');
+      }
+
+      if(!sessionUser){ //login
+        sessionLink = <Link to="/login"><button className="login">Log in</button></Link>;
+        signUpLink =  <Link to="/signup"><button className="signup">Sign up</button></Link>;
+      } else{ //logout
+        sessionLink = <Link><button onClick={handleLogOut} className="login">Log out</button></Link>
+
+      }
+
+
+  
   return (
     <>
-    <nav className="navbar">
-        <div className="whole-container">
-
-    <div className="first-container"> 
-                <div>
-                    <BurgerMenu className="firstcontainerchild" /></div>
-
-                    <div className="logo firstcontainerchild">
-                        <Link to="/" className="nav-link">
-                            <img src={logo} alt=""/>
-                        </Link>
-
+    <div className="nav-box">
+        <nav className="navbar">
+            <div className="nav-container">
+                <div className="nav-left">
+                    <BurgerMenu/>
+                    <Link to="/" className="nav-logo">
+                        <img className="syntaxError-logo-img" src={logo} alt="syntaxError"></img>
+                    </Link>
+                </div>
+                <div className="nav-right">
+                    <div className="nav-search">
+                        <div><svg className="magnifying-glass" width="18" height="18" viewBox="0 0 18 18"><path d="m18 16.5-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5ZM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0Z"></path></svg></div>
+                        <div><input className="nav-search" placeholder="Search..."></input></div>
                     </div>
-                    <div className="about firstcontainerchild">
-                        <Link to="/about" className="nav-link">
-                            
-                            About
-                            
-                        </Link>
-                    </div>                
-                    <div className="products firstcontainerchild">
-                        <Link to="/products" className="nav-link">
-                           
-                                Products
-                            
-                        </Link>
+                    <div className="session-links">
+                        {sessionLink}
+                        {signUpLink}
                     </div>
-                    <div className="teams firstcontainerchild">
-                        <Link to="/teams" className="nav-link">
-
-                                For Teams
-                        </Link>
-                    </div>
+                </div>
             </div>
-
-
-          
-                        <div className="search-container">
-                        <div><svg aria-hidden="true" className="magnifying-glass" width="18" height="18" viewBox="0 0 18 18"><path d="m18 16.5-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5ZM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0Z"></path></svg></div>
-                                <input
-                                    className="search"
-                                    autoComplete="off"
-                                    type="text"
-                                    name="search"
-                                    maxLength="35"
-                                    placeholder="Search..."
-                                />                
-                        </div>
-                    <div className="third-container">
-                        <Link to="/login">
-                            <button className="login">Log in</button>
-                        </Link>
-
-                        <Link to="/signup">
-                            <button className="sign-up">Sign up</button>
-                        </Link>
-                    </div>
-              
+        </nav>
     </div>
-    </nav>
     </>
   );
 };

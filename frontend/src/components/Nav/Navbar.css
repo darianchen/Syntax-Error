@@ -1,115 +1,70 @@
-.navbar{
-    display: flex;
-    background-color: #F8F9F9;
-    justify-content: center;
+.nav-box{
     height: 50px;
-    position: sticky;
-    border-top: 3px solid #F48225;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
 }
 
-.whole-container{
-    display: flex;
-}
-
-.first-container{
-    display: flex;
+.navbar{
+    position: fixed;
+    background-color: #F8F9F9;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    justify-content: flex-end;
+    box-shadow: 0 0 10px 0px #CCCCCC;
+    z-index: 99;
+    height: 50px;
+
 }
 
-.firstcontainerchild {
-    flex: 1 0 25%;
+.nav-container{
     display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+
+.nav-left{
+    display: flex;
+    margin-left: 40px;
+}
+
+.nav-right{
+    display: flex;
     justify-content: center;
-}
-
-.first-container div:first-child{
-    width: 50px;
-    height: 51px;
-}
-
-.about:hover{
-    border-radius: 50px;
-    width: 50%;
-    background-color: #e3e6e8;
-}
-
-.products:hover{
-    border-radius: 50px;
-    width: 50%;
-    background-color: #e3e6e8;
-}
-
-.teams:hover{
-    border-radius: 50px;
-    width: 50%;
-    background-color: #e3e6e8;
-}
-
-
-
-.search-container{
-    display: flex;
-    height: fit-content;
-    margin-top: 7px;
     align-items: center;
-    background-color: #FFFFFF;
+    margin-right: 40px;
 }
 
-.search-container input{
+.nav-logo{
+    margin-left: 10px;
+}
+
+.nav-search{
+    display: flex;
+}
+
+::placeholder{
+    padding-left: 25px;
+}
+
+.nav-right input{
     width: 400px;
-    height: 30px;    
+    margin-right: 10px;
+    height: 33px;
 }
 
 .magnifying-glass{
-    padding-left: 5px;
-    cursor: text;
-    fill: #838C95;
-}
+    height: 33px;
+    position: absolute;
+    right: auto;
+    margin-top: 3px;
+    margin-left: 5px;
 
-.search-container{
-    border: 1px solid #bbbfc3;
-    border-radius: 3px;
-}
 
-.search-container input{
-    border: none;
-}
-
-.search-container input:focus{
-    border: none;
-}
-
-input:focus, textarea:focus {
-    outline: none;
-}
-
-.third-container{
-    margin-top: 1px;
-    margin-left: 9px;
-    width: 100%;
-}
-
-.third-container button{
-    margin-top: 6px;
-    margin-right: 3px;
-    height: 35px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.nav-link{
-    color: #525960;
-}
-
-.logo:hover{
-    background-color: #e3e6e8;
 }
 
 .login{
+    width: 65px;
+    height: 39px;
+    margin-right: 5px;
     background-color: #e1ecf4;
     border-radius: 3px;
     border: 1.5px solid #79A7C7;
@@ -121,7 +76,9 @@ input:focus, textarea:focus {
     background-color: #B3D3EA;
 }
 
-.sign-up{
+.signup{
+    width: 66px;
+    height: 39px;
     background-color: #0a95ff;
     color: white;
     border-radius: 3px;
@@ -129,6 +86,6 @@ input:focus, textarea:focus {
     box-shadow: inset 0 0.5px 0 0 white;
 }
 
-.sign-up:hover{
+.signup:hover{
     background-color: #0074CC;
 }
