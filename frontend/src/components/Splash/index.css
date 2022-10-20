@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
+#container{
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 48px;
+    background-color: #f8f9f9;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#black-box{
+    height: 100%;
+    border-radius: 7px;
+    padding: 32px;
+    background-color: #383d43;
+}
+
+#speech-bubble-container{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 948px;
+}
+
+.speech-bubble{
+    flex-basis: 50%;
+    padding: 16px;
+    line-height: 17px;
+}
+
+#left-content{
+    display: block;
+    position: relative;
+    text-align: center;
+    padding: 24px;
+    background-color: #ffe3cd;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.glass-lock{
+    margin-bottom: 16px;
+}
+
+#right-content{
+    display: block;
+    position: relative;
+    text-align: center;
+    padding: 24px;
+    background-color: #cde9fe;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.get-started{
+    margin-bottom: 12px;
+}
+
+.speech-bubble-right-corner{
+    background-color: #ffe3cd;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    left: auto;
+    transform: scaleX(-1);
+    top: 99%;
+    display: block;
+    clip-path: polygon(18px 0, 32px 0, 0 40px, 0 38px, 0 0, 18px 0);
+    border-radius: 0 5px;
+}
+
+.speech-bubble-left-corner{
+    background-color: #cde9fe;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 0;
+    right: auto;
+    transform: scaleX(1);
+    top: 99%;
+    display: block;
+    clip-path: polygon(18px 0, 32px 0, 0 40px, 0 38px, 0 0, 18px 0);
+    border-radius: 0 5px;
+}
+
+.speech-h1{
+    font-size: 19px;
+    margin-left: 39px;
+    margin-right: 39px;
+    margin-bottom: 19px;
+    font-stretch: 100%;
+    font-weight: 400;
+    max-width: 316px;
+    line-height: 24.7px;
+}
+
+#join-community-button{
+    height: 43.3px;
+    width: 210.66px;
+    background-color: #f2740e;
+    color: white;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+}
+
+#search-content{
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+#github-button{
+    height: 44px;
+    width: 194.26px;
+    background-color: #0a95ff;
+    color: white;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+}
+
+#linkedin-button{
+    height: 44px;
+    width: 148.67px;
+    background-color: #0a95ff;
+    margin-left: 8px;
+    color: white;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+}
+
+.get-started{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    margin-left: 91.6719px;
+    margin-right: 91.6719px;
+    max-width: 210.667px;
+    box-sizing: border-box;
+    border-color: black;
+    margin-bottom: 12px;
+    
+}
+
+.line{
+   border-color: black;
+   flex-basis: 33.3333333%;
+   outline-style: solid;
+   text-align: center;
+}
+
+.text{
+    flex-shrink: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.animation-container{
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+    font-size: 55px;
+    line-height: 72px;
+    color: white;
+    padding: 64px 0px;
+}
+
+.job{
+    color: #F2740E;
+}
+
+.animation{
+    display: flex;
+    flex-direction: column;
+    animation: text-animation 2s infinite;
+    transform: translate(-30px);
+    display: inline-block;
+}
+
+@keyframes text-animation {
+    0%{
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    60%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.syntaxError{
+    text-decoration-line: underline;
+    text-underline-offset: 14.25px;
+    text-decoration-color: red;
+    text-decoration-style: wavy;
+}
+
+.black-block{
+    display: block;
+    margin: 0 auto;
+    border-radius: 1000px;
+    height: 8px;
+    background-color: #6A737C;
+    width: 64px;
+}
+
+.svgs{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.tool{
+    font-family: 'Roboto Slab', serif;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 500;
+    user-select: none;
+}
