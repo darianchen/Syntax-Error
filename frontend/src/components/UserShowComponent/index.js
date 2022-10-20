@@ -9,7 +9,7 @@ const UserPage = () => {
     const user = useSelector(getUser(userId));
 
     useEffect(() => {
-         dispatch(fetchUser(userId));
+        dispatch(fetchUser(userId));
     }, [dispatch, userId]);
 
     if (user){
