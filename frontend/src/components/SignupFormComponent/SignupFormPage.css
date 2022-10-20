@@ -1,0 +1,73 @@
+
+.signup-page{
+    display: flex;
+    justify-content: center;
+    margin-top: 180px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.left-content{
+    display: flex;
+    flex-direction: column;
+    margin-right: 35px;
+}
+
+.syntaxError-su{
+    text-decoration-line: underline;
+    text-underline-offset: 5.75px;
+    text-decoration-color: red;
+    text-decoration-style: wavy;
+}
+
+h1{
+    font-size: 1.6rem;
+}
+
+#left-title{
+    margin-bottom: 25px;
+}
+
+.right-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form{
+    width: 288.45px;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+}
+
+#item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.signup-svg{
+    
+    align-items: center;
+    margin-right: 10px;
+}
+
+.login-button:hover{
+    background-color: #0074CC;
+}
+
+.su-label{
+    margin-bottom: 10px;
+}
+
+.su-input{
+    margin-bottom: 10px;
+    height: 32.5938px;
+}
