@@ -10,7 +10,7 @@ class Api::QuestionsController < ApplicationController
       if @question.save
         render 'api/questions/show'
       else
-        render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+
       end
     end
   
@@ -22,9 +22,30 @@ class Api::QuestionsController < ApplicationController
         render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
       end
     end
+
+    def update
+      @question = Question.find_by(id: params[:id])
+      if @question
+        if @question.update(question_params)
+          render :show
+        else
+          render json: @question.errors.full_messages, status: 422
+        end
+      else
+        render json: ['Question Not Found'], status: 404
+      end
+    end
+
   
+    def destroy
+      @question = Question.find(params[:id])
+      if @question.destroy
+          render json: {message: 'Successfully removed question.'}
+      end 
+    end
+
     private
     def question_params
-      params.require(:question).permit(:title, :body, :author_id)
+      params.require(:question).permit(:title, :body, :author_id, :editor_id, :id, :created_at, :updated_at)
     end
   end

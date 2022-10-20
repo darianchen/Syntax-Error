@@ -30,7 +30,7 @@ ApplicationRecord.transaction do
         email: 'test@example.com', 
         password: 'password'
     )
-  
+    
     #More users
     10.times do 
       display_name = Faker::Games::SuperSmashBros.fighter
@@ -40,6 +40,42 @@ ApplicationRecord.transaction do
         password: 'password'
       }) 
     end
+
+
+    Question.create!(
+          title: 'How do I become a software engineer?',
+          body: 'I literally have no idea where to start?. Can someone help me?!', 
+          author_id: '2'
+      )
+
+      Question.create!(
+            title: 'Why is the sky blue?',
+            body: 'One of the biggest mysteries ever.', 
+            author_id: '3'
+        )
+
+        Question.create!(
+              title: 'How to make <hr> full width of page irrespective of the parent?',
+              body: 'Could you tell me how to limit content width to the screen boundary? For the following script i always get 2px width wider than screen (allowed space) width.
+              document.body.scrollWidth is always 2px wider than screen', 
+              author_id: '13'
+          )
+        
+          Question.create!(
+            title: 'How to make <hr> full width of page irrespective of the parent?',
+            body: 'Could you tell me how to limit content width to the screen boundary? For the following script i always get 2px width wider than screen (allowed space) width.
+            document.body.scrollWidth is always 2px wider than screen', 
+            author_id: '13'
+        )
+
+
+        100.times do 
+          Question.create!({
+            title: Faker::Hacker.say_something_smart,
+            body: Faker::Quotes::Shakespeare.hamlet_quote,
+            author_id: rand(1..12)
+          }) 
+        end
   
     puts "Done!"
   end
