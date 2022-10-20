@@ -1,0 +1,45 @@
+.BurgerMenu__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #F8F9F9;
+}
+
+.BurgerMenu__container:hover {
+  background-color: #e3e6e8;
+}
+
+i {
+  background-color: #525960;
+  width: 18px;
+  height: 2px;
+  margin: 2px;
+  transition:all ease 0.2s;
+}
+      
+.open:nth-child(1) {
+  transform-origin: right;
+  transform: rotate(-43deg) ;
+}
+  
+.open:nth-child(2) {
+  opacity: 0;
+}
+  
+.open:nth-child(3) {
+  transform-origin: right;
+  transform: rotate(43deg) ;
+}
+  
+.close:nth-child(1) {
+  transform: rotate(0);
+}
+  
+.close:nth-child(2) {
+  opacity: 1;
+}
+  
+.close:nth-child(3) {
+  transform: rotate(0);
+}
