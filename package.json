@@ -22,5 +22,9 @@
   "homepage": "https://github.com/darianchen/Syntax-Error#readme",
   "engines": {
     "node": "16.x"
+  },
+  "dependencies": {
+    "moment": "^2.29.4",
+    "momentjs": "^2.0.0"
   }
 }
