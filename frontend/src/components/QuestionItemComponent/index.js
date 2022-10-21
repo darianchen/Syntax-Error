@@ -6,15 +6,17 @@ import './index.css'
 import moment from 'moment';
 
 const QuestionItem = ({question}) => {
-    const { id, title, body, authorId, createdAt, editorId} = question;
+    const { id, title, body, authorId, createdAt, editorId, updatedAt} = question;
     const dispatch = useDispatch();
     const user = useSelector(getUser(authorId));
     let editor = useSelector(getUser(editorId));
     let editedBy = "";
     
+    const now = moment(updatedAt).fromNow();
+
 
     if(editor) {
-        editedBy = "edited by " + editor.displayName;
+        editedBy = "Edited by " + editor.displayName + " " + now;
     }
 
   

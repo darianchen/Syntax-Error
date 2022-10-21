@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {  useHistory, useParams } from "react-router-dom";
 import { getQuestion, updateQuestion } from "../../store/questions";
+import moment from "moment";
 
 const QuestionEditForm = () => {
     const dispatch = useDispatch();
@@ -10,6 +11,8 @@ const QuestionEditForm = () => {
     const history = useHistory();
     let question = {title: "", body: ""};
     question = useSelector(getQuestion(questionId));
+    const now = new Date();
+
 
     
     const [title, setTitle] = useState(question.title);
@@ -27,7 +30,7 @@ const QuestionEditForm = () => {
                 authorId: question.authorId,
                 editorId: sessionUser.id,
                 id: question.id,
-                updatedAt: question.updatedAt
+                updatedAt: now
             }
         }))
         history.push('/questions');
