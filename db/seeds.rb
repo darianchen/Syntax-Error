@@ -30,6 +30,13 @@ ApplicationRecord.transaction do
         email: 'test@example.com', 
         password: 'password'
     )
+
+    User.create!(
+      # Create one user with an auto-generated display name:
+          display_name: 'Payton a.k.a P Dog',
+          email: 'payton@payton.com', 
+          password: 'password'
+      )
     
     #More users
     10.times do 
@@ -61,13 +68,19 @@ ApplicationRecord.transaction do
               author_id: '13'
           )
     
-        5.times do 
+        4.times do 
           Question.create!({
             title: Faker::Hacker.say_something_smart,
             body: Faker::Quotes::Shakespeare.hamlet_quote,
             author_id: rand(1..12)
           }) 
         end
+
+        Question.create!(
+          title: 'Darian is the best programmer in the entire cohort!',
+          body: 'HIRE HIM', 
+          author_id: '4'
+      )
   
     puts "Done!"
   end
