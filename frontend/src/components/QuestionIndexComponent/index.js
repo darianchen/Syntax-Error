@@ -19,8 +19,10 @@ const QuestionIndex = () => {
     }
 
     const dispatch = useDispatch();
+
     const questions = useSelector(getQuestions);
     
+    debugger
     useEffect(() => {
          dispatch(fetchQuestions());
     }, []);

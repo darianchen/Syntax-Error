@@ -39,8 +39,9 @@
 }
 
 .question-content-summary-bottom-user-card{
+    display: flex;
+    width: 595px;
+    justify-content: space-between;
     position: absolute;
-    margin-left: auto;
-    margin-right: 0;
     bottom: 10%;
 }

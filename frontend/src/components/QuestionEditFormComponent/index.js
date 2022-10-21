@@ -21,20 +21,17 @@ const QuestionEditForm = () => {
         e.preventDefault();
         debugger
         dispatch(updateQuestion({
-
+            question: {
+            editorId: sessionUser.id,
             title: title, 
             body: body,
-            authorId: question.authorId,
-            editorId: sessionUser.id,
             id: question.id,
-            createdAt: question.createdAt,
-            updatedAt: question.updatedAt
+            updatedAt: question.updatedAt,
+        }
         }))
         history.push('/questions');
     };
 
-
-    
     return(
         <>
             <div className="container">

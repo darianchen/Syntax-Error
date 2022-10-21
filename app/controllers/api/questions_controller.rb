@@ -24,7 +24,8 @@ class Api::QuestionsController < ApplicationController
     end
 
     def update
-      @question = Question.find_by(id: params[:id])
+      debugger
+      @question = Question.find_by(id: question_params[:id])
       if @question
         if @question.update(question_params)
           render :show
@@ -36,16 +37,15 @@ class Api::QuestionsController < ApplicationController
       end
     end
 
-  
     def destroy
       @question = Question.find(params[:id])
       if @question.destroy
-          render :index
+          render json: { errors: @question.errors.full_messages }, status: :unprocessable_entity
       end 
     end
 
     private
     def question_params
-      params.require(:question).permit(:title, :body, :author_id, :editor_id, :id, :created_at, :updated_at)
+      params.require(:question).permit(:editor_id, :title, :body, :author_id, :id, :created_at, :updated_at)
     end
   end

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Route, Switch } from 'react-router-dom'
 import LoginFormPage from "./components/LoginFormComponent";
 import Navbar from "./components/Nav";
-import Navigation from "./components/Navigation";
 import SignupFormPage from "./components/SignupFormComponent";
 import UserPage from "./components/UserShowComponent";
 import SplashPage from "./components/Splash";

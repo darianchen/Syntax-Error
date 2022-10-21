@@ -49,9 +49,13 @@
     color: #333333;
 }
 
+/* .question-show-ask-question-button{
+    max-height: 10px;
+} */
+
 .question-show-bottom{
     display: flex;
-
+    
 }
 
 .crud-functions{

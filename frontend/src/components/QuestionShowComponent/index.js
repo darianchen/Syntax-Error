@@ -14,7 +14,9 @@ const QuestionShow = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const { questionId } = useParams();
-    const question = useSelector(getQuestion(questionId)) || {createdAt: "", title: "", body: "", authorId: ""};
+    const question = useSelector(getQuestion(questionId)) || {createdAt: "", title: "", body: "", authorId: "", editorId: ""};
+    console.log(question.editorId);
+    console.log(question.id);
     const dateTimeAgo = moment(question.createdAt).fromNow();
     let user = useSelector(getUser(question.authorId));
 
@@ -36,6 +38,9 @@ const QuestionShow = () => {
         dispatch(deleteQuestion(questionId));
         history.push('/questions');
     }
+
+
+
 
     if (question){
     return (
@@ -72,6 +77,7 @@ const QuestionShow = () => {
                     <div className="crud-functions">
                         <div className="edit-delete"><Link to={`/questions/${questionId}/edit`}>Edit</Link></div>
                         <div className="edit-delete" onClick={handleDelete}>Delete</div>
+                        <div>{}</div>
                     </div>
 
                 </div>
