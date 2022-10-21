@@ -60,16 +60,8 @@ ApplicationRecord.transaction do
               document.body.scrollWidth is always 2px wider than screen', 
               author_id: '13'
           )
-        
-          Question.create!(
-            title: 'How to make <hr> full width of page irrespective of the parent?',
-            body: 'Could you tell me how to limit content width to the screen boundary? For the following script i always get 2px width wider than screen (allowed space) width.
-            document.body.scrollWidth is always 2px wider than screen', 
-            author_id: '13'
-        )
-
-
-        100.times do 
+    
+        5.times do 
           Question.create!({
             title: Faker::Hacker.say_something_smart,
             body: Faker::Quotes::Shakespeare.hamlet_quote,

@@ -1,24 +1,17 @@
-# README
+# -darianchen-syntaxError-Stack-Overflow-Clone-Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Background - The Numbers and The Reasons:
 
-Things you may want to cover:
+syntaxError is public question and answer platform based on the popular forum Stack Overflow. Its name is based off the common programming error syntax error.
 
-* Ruby version
+Functionality & MVPs
 
-* System dependencies
+In the world data visualization project, users will be able to:
 
-* Configuration
+- Post questions similar to how users can post on Stack Overflow
+- Help other users with their programming problems by answering questions
+- Vote on questions and answers similar to a like and dislike system
+- Demo login is provided to avoid any inconvenience
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Technologies, Libraries, APIs
+ReactJS, Redux, Ruby on Rails, PostGreSQL

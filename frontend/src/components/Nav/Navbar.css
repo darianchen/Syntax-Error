@@ -45,10 +45,11 @@
     padding-left: 25px;
 }
 
-.nav-right input{
+.nav-search{
     width: 400px;
     margin-right: 10px;
     height: 33px;
+    margin-bottom: 4px;
 }
 
 .magnifying-glass{
@@ -89,3 +90,4 @@
 .signup:hover{
     background-color: #0074CC;
 }
+

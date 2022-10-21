@@ -48,7 +48,7 @@ const QuestionForm = () => {
                             <p className="title-text">
                                 Be Specific and imagine you're asking a question to another person
                             </p>
-                            <input className="title-input" onChange={e => setTitle(e.target.value)} placeholder="e.g Is there an R function for finding the index of an element in a vector?"></input>
+                            <input className="title-input-form" onChange={e => setTitle(e.target.value)} placeholder="e.g Is there an R function for finding the index of an element in a vector?"></input>
                         </div>
                         <div className="body-box">
                             <label className="body label">
