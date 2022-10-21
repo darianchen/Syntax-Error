@@ -21,14 +21,14 @@ const QuestionEditForm = () => {
         e.preventDefault();
         debugger
         dispatch(updateQuestion({
-
-            title: title, 
-            body: body,
-            authorId: question.authorId,
-            editorId: sessionUser.id,
-            id: question.id,
-            createdAt: question.createdAt,
-            updatedAt: question.updatedAt
+            question: {
+                title: title, 
+                body: body,
+                authorId: question.authorId,
+                editorId: sessionUser.id,
+                id: question.id,
+                updatedAt: question.updatedAt
+            }
         }))
         history.push('/questions');
     };
