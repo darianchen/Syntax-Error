@@ -25,7 +25,7 @@ class Api::QuestionsController < ApplicationController
 
     def update
       debugger
-      @question = Question.find_by(id: params[:id])
+      @question = Question.find_by(id: question_params[:id])
       if @question
         if @question.update(question_params)
           render :show
