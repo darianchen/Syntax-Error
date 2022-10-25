@@ -53,9 +53,6 @@ export const updateQuestion = question=> async dispatch => {
     dispatch(receiveQuestion(data));
   };
   
-
-
-
 // export const createQuestion = question => async dispatch => {
 //     const res = await csrfFetch('/api/questions', {
 //         method: 'POST',
@@ -86,3 +83,4 @@ const questionsReducer = (state= {}, action) => {
 };
 
 export default questionsReducer;
+
