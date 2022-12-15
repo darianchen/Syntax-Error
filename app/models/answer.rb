@@ -1,6 +1,6 @@
 class Answer  < ApplicationRecord
 
-    validates :description, presence: true
+    validates :description, :answerer_id, :question_id, presence: true
 
     belongs_to :user,
         class_name: :User,

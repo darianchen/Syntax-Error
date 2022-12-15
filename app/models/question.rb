@@ -14,7 +14,8 @@
 class Question < ApplicationRecord
     validates :title, :body, :views, :author_id, presence: true
 
-    
+    has_many :answers, dependent: :destroy
+
     belongs_to :author,
         foreign_key: :author_id,
         class_name: :User

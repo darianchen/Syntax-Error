@@ -1,5 +1,4 @@
 class Api::AnswersController < ApplicationController
-
     def index
       @answers = Answer.all
       render :index
@@ -7,10 +6,9 @@ class Api::AnswersController < ApplicationController
   
     def create
       @answer = Answer.new(answer_params)
-      @answer.answerer_id = current_user.id
-      @answer.question_id = params[:question_id]
       if @answer.save!
-        render :show
+        puts "success"
+        render 'api/answers/show'
       else
         render json: @answer.errors.full_messages, status: 422
       end
@@ -46,7 +44,7 @@ class Api::AnswersController < ApplicationController
   
     private
     def answer_params
-      params.require(:answer).permit(:description, :editor_id, :answerer_id, :id, :updated_at)
+      params.require(:answer).permit(:description, :editor_id, :answerer_id, :question_id, :id, :updated_at)
     end
   
 end
