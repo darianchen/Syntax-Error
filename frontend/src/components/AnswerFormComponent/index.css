@@ -1,0 +1,19 @@
+.answer-form-container {
+    width: 100%;
+
+  
+}
+
+#your-answer{
+    padding-top: 20px;
+    margin-bottom: 19px;
+    font-size: 19px;
+}
+
+textarea {
+    width: 100%;
+}
+
+.post-answer-button{
+    margin-top: 26px;
+}
