@@ -1,0 +1,12 @@
+.answer-top{
+    display: flex;
+    border-top:1px solid #E4E6E7;
+}
+
+.answer-crud{
+    border-bottom: 0;
+}
+
+.answer-container{
+    border-bottom:1px solid #E4E6E7;
+}
