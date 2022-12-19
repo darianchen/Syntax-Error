@@ -21,8 +21,7 @@ const Navbar = () => {
         sessionLink = <Link to="/login"><button className="login">Log in</button></Link>;
         signUpLink =  <Link to="/signup"><button className="signup">Sign up</button></Link>;
       } else{ //logout
-        sessionLink = <Link><button onClick={handleLogOut} className="login">Log out</button></Link>
-
+        sessionLink = <button onClick={handleLogOut} className="login">Log out</button>
       }
 
 
