@@ -39,6 +39,7 @@ const QuestionIndex = () => {
                             {mapQuestions()} 
                     </div>
                 </div>
+                <Footer/>
             </>
         )
 };
