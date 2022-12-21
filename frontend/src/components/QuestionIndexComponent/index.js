@@ -19,7 +19,7 @@ const QuestionIndex = () => {
     }
 
     const dispatch = useDispatch();
-    const questions = useSelector(getQuestions);
+    let questions = useSelector(getQuestions).slice().reverse();
     
     useEffect(() => {
          dispatch(fetchQuestions());
