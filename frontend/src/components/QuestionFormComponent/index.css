@@ -30,6 +30,7 @@
     padding: 16px;
     border-radius: 3px;
     box-shadow: 0 0 10px 1px #CCCCCC;
+    width: 800px;
 }
 
 .title-input-form{
@@ -79,3 +80,77 @@ textarea{
     margin-top: 32px;
     margin-left: 2px;
 }
+
+.question-and-draft{
+    display: flex;
+    flex-direction: row;
+}
+
+.steps-container{
+    width: 316px;
+    margin-left: 24px;
+    border-color: rgb(214, 217, 220);
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 0 0 10px 1px #CCCCCC;
+}
+
+.steps{
+    padding: 16px 15px 0 15px;
+    border-top: 1px solid rgb(227, 230, 232);
+}
+
+.steps-instruction .number{
+    font-size: 15px;
+    color: blue;
+}
+
+.step-text{
+    color: black;
+    font-weight: 800;
+}
+
+.steps-title{
+    padding: 12px 15px;
+    color: rgb(82, 89, 96);
+    border-radius: 3px;
+    background-color: rgb(248, 249, 249);
+}
+
+/* .steps-container {
+    width: 316px;
+    margin-left: 24px;
+    border-color: rgb(214, 217, 220);
+    border-radius: 3px;
+    box-shadow: var(--bs-lg);
+    .steps-title {
+        padding: 12px 15px;
+        color: rgb(82, 89, 96);
+        border-radius: 3px;
+        background-color: rgb(248, 249, 249);
+    }
+    .steps {
+        padding: 16px 15px 0 15px;
+        border-top: 1px solid rgb(227, 230, 232);
+        .steps-info {
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        .steps-instruction {
+            .number {
+                font-size: 15px;
+                color: var(--btn-signup-bg-blue-fill);
+            }
+            li {
+                font-size: 13px;
+                font-weight: 600;
+                color: rgb(35, 38, 41);
+                align-self: center;
+                text-align: start;
+            }
+            :not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+    } */

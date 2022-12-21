@@ -37,9 +37,7 @@ const QuestionIndex = () => {
                         <div className="question-index-header"><h1>All Questions</h1>
                             <button onClick={handleClick} className="question-index-button">Ask Question</button>
                         </div>
-                        <div className="data-controller">{questions.length} questions</div>
                             {mapQuestions()} 
-
                     </div>
                 </div>
             </>
