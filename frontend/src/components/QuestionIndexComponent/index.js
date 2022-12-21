@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { fetchQuestions, getQuestions } from "../../store/questions";
-import LeftSidebar from "../LeftSidebarComponent";
+import Footer from "../Footer";
 import QuestionItem from "../QuestionItemComponent";
 import './index.css';
 
@@ -31,9 +31,8 @@ const QuestionIndex = () => {
         ))
     };
         return(
-            <>
-                <div className="page-content">
-                    <div className="question-index-right">
+            <>  <div className="page-content">
+                    <div className="question-index">
                         <div className="question-index-header"><h1>All Questions</h1>
                             <button onClick={handleClick} className="question-index-button">Ask Question</button>
                         </div>
