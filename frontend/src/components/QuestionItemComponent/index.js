@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import { fetchUser, getUser } from "../../store/users";
 import './index.css'
 import moment from 'moment';
+import { fetchAnswers, getAnswers } from "../../store/answers";
 
 const QuestionItem = ({question}) => {
     const { id, title, body, authorId, createdAt, editorId, updatedAt} = question;
@@ -11,6 +12,15 @@ const QuestionItem = ({question}) => {
     const user = useSelector(getUser(authorId));
     let editor = useSelector(getUser(editorId));
     let editedBy = "";
+    const filteredAnswers = [];
+
+    let answers = useSelector(getAnswers).slice();
+
+    answers.filter(answer => {
+        if(parseInt(answer.questionId) === parseInt(question.id)){
+            filteredAnswers.push(answer);
+        }
+    })
     
     const now = moment(updatedAt).fromNow();
 
@@ -24,7 +34,7 @@ const QuestionItem = ({question}) => {
 
     useEffect(() => {
         dispatch(fetchUser(authorId));
-
+        dispatch(fetchAnswers());  
     },[question]);
 
     const getBody = (body) => {
@@ -43,20 +53,13 @@ const QuestionItem = ({question}) => {
             <div className="question-container">
                 <div className="question-stats">
                     <div className="question-index-votes">votes</div>
-                    <div className="question-index-answers">answers</div>
+                    <div className="question-index-answers">{filteredAnswers.length} answers</div>
                 </div>
                 <div className="question-content-summary">
                     <Link to={`/questions/${id}`}> <h3 className="question-listing-title">{title}</h3></Link>
                     <div className="question-content-summary-body">{getBody(body)} ...</div>
                     <div className="question-content-summary-bottom-user-card"><div>{user.displayName} asked {dateTimeAgo}</div> <div className="editor">{editedBy}</div></div>
                 </div>
-              
-            {/* <div className="question-content-summary-bottom">
-                        <div className="question-content-summary-body">{getBody(body)} ...</div>
-                        <div className="question-content-summary-bottom-user-card"><div>{user.displayName} asked {dateTimeAgo}</div> <div className="editor">{editorId}</div></div>
-                    </div> */}
-
-
             </div>
         )
     }
