@@ -7,8 +7,10 @@ import QuestionItem from "../QuestionItemComponent";
 import './index.css';
 
 const QuestionIndex = () => {
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
+   
 
     const handleClick = (e) => {
         if (sessionUser){
@@ -18,7 +20,6 @@ const QuestionIndex = () => {
         }
     }
 
-    const dispatch = useDispatch();
     let questions = useSelector(getQuestions).slice().reverse();
     
     useEffect(() => {
@@ -33,7 +34,7 @@ const QuestionIndex = () => {
         return(
             <>  <div className="page-content">
                     <div className="question-index">
-                        <div className="question-index-header"><h1>All Questions</h1>
+                        <div className="question-index-header"><h1>All {questions.length} Questions</h1>
                             <button onClick={handleClick} className="question-index-button">Ask Question</button>
                         </div>
                             {mapQuestions()} 
