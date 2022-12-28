@@ -6,8 +6,10 @@ import LeftSidebar from "../LeftSidebarComponent";
 import './index.css'
 import moment from 'moment';
 import { fetchUser, getUser } from "../../store/users";
-
-
+import AnswerForm from "../AnswerFormComponent";
+import Footer from "../Footer";
+import { fetchAnswer, fetchAnswers, getAnswers } from "../../store/answers";
+import AnswerIndex from "../AnswerIndexComponent";
 
 const QuestionShow = () => {
     const sessionUser = useSelector(state => state.session.user)
@@ -17,6 +19,21 @@ const QuestionShow = () => {
     const question = useSelector(getQuestion(questionId)) || {createdAt: "", title: "", body: "", authorId: ""};
     const dateTimeAgo = moment(question.createdAt).fromNow();
     let user = useSelector(getUser(question.authorId));
+
+
+    useEffect(() => {
+        dispatch(fetchAnswers());
+   },[]);
+
+
+    const filteredAnswers = [];
+    let answers = useSelector(getAnswers).slice();
+    answers.filter(answer => {
+        if(parseInt(answer.questionId) === parseInt(questionId)){
+            filteredAnswers.push(answer);
+        }
+    })
+
 
     useEffect(() => {
         document.querySelector(".left-sidebar-questions").style.backgroundColor = "#F1F2F3";
@@ -70,12 +87,15 @@ const QuestionShow = () => {
                         </div>
                     </div>
                     <div className="crud-functions">
-                        <div className="edit-delete"><Link to={`/questions/${questionId}/edit`}>Edit</Link></div>
-                        <div className="edit-delete" onClick={handleDelete}>Delete</div>
+                            <div className="edit-delete" style={{marginRight:"5px"}}><Link to={`/questions/${questionId}/edit`}>Edit</Link></div>
+                            <div className="edit-delete" onClick={handleDelete}>Delete</div>
                     </div>
-
-                </div>
+                    <div className="answer-count">{filteredAnswers.length} Answers</div>
+                    <AnswerIndex/>
+                    <AnswerForm questionId={questionId}/>
+                </div>     
             </div>
+        <Footer/>
         </>
     )}
 };

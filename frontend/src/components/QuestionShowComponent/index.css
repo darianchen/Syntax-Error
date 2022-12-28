@@ -10,6 +10,7 @@
     color: #0074cc;
 }
 .question-show-content{
+    border-left: 2px solid #E4E6E7;
     width: 751px;
     height: 100%;
     padding: 24px;
@@ -51,15 +52,14 @@
 
 .question-show-bottom{
     display: flex;
-
 }
 
 .crud-functions{
     display: flex;
     font-size: 14px;
     cursor: pointer;
-    justify-content: space-between;
-    width: 80px;
+    height: 17px;
+    border-bottom: 2px solid #E4E6E7;
 }
 
 .vote-count{
@@ -70,5 +70,11 @@
 
 .edit-delete{
     color: #3C8AD4;
+}
+
+.answer-count{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 19px;
 }
 
