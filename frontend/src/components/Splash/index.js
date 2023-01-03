@@ -5,6 +5,7 @@ import QuestionIndex from "../QuestionIndexComponent";
 import './index.css'
 import {SiRedux,SiPostgresql, SiReact} from "react-icons/si"
 import {DiRuby, DiReact} from "react-icons/di";
+import Footer from "../Footer";
 
 const SplashPage = () => {
 
@@ -88,6 +89,7 @@ const SplashPage = () => {
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </>
         )
     } else{

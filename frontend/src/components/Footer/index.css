@@ -1,0 +1,41 @@
+.footer-container{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: rgb(35, 38, 41);
+    padding: 32px 12px 32px 12px;
+    font-size: 13px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: rgb(186, 191, 196);
+    line-height: 17px;
+    cursor: pointer;
+}
+
+.syntaxErrorLogo {
+    margin: -12px 24px 32px 0px;
+}
+
+.footer-right {
+    margin-right: 50px;
+}
+
+.footer-left {
+    display:flex;
+}
+
+li{
+    margin-top: 10px;
+    color: rgb(131, 140, 149);
+}
+
+li:hover {
+    color: rgb(159, 166, 173)
+}
