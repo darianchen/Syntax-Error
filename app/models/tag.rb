@@ -1,13 +1,13 @@
 class Tag < ApplicationRecord
-    validates :title, presence: true, uniqueness: true
+    validates :name, presence: true, uniqueness: true
 
-    has_many :question_tags,
+    has_many :taggings,
         foreign_key: :tag_id,
-        class_name: :QuestionTag,
+        class_name: :Tagging,
         dependent: :destroy
     
     has_many :questions_tagged,
-        through: :question_tags,
+        through: :taggings,
         source: :questions
 
     def creation

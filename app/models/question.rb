@@ -16,6 +16,8 @@ class Question < ApplicationRecord
 
     has_many :answers, dependent: :destroy
 
+    has_many :votes, dependent: :destroy, foreign_key: :post_id
+
     belongs_to :author,
         foreign_key: :author_id,
         class_name: :User
