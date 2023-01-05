@@ -6,10 +6,15 @@ ApplicationRecord.transaction do
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
     Question.destroy_all
+    Answer.destroy_all
+    Vote.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
+    ApplicationRecord.connection.reset_pk_sequence!('questions')
+    ApplicationRecord.connection.reset_pk_sequence!('answers')
+    ApplicationRecord.connection.reset_pk_sequence!('votes')
   
     puts "Creating users..."
     # Create one user with an easy to remember email and password:
@@ -54,6 +59,22 @@ ApplicationRecord.transaction do
           title: 'How do I become a software engineer?',
           body: 'I literally have no idea where to start?. Can someone help me?!', 
           author_id: '1'
+      )
+
+
+      # Tag.create!(
+      #   name: 'Java',
+      # )
+
+      # Tagging.create!(
+      #   question_id: '1',
+      #   tag_id: '1'
+      # )
+
+      Vote.create!(
+        post_id: 1,
+        voter_id: 1,
+        vote: true
       )
 
       # Question.create!(
