@@ -1,22 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {  useHistory, useParams } from "react-router-dom";
 import { getQuestion, updateQuestion } from "../../store/questions";
-import moment from "moment";
 
 const QuestionEditForm = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const {questionId} = useParams();
     const sessionUser = useSelector(state => state.session.user);
-    const history = useHistory();
-    let question = {title: "", body: ""};
-    question = useSelector(getQuestion(questionId));
+    let question = useSelector(getQuestion(questionId));
     const now = new Date();
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
 
-
-    
-    const [title, setTitle] = useState(question.title);
-    const [body, setBody] = useState(question.body);
+    useEffect(() => {
+        if (question) {
+          setTitle(question.title);
+          setBody(question.body);
+        }
+      }, [question]);
 
     if(!sessionUser) history.push('/login');
 
@@ -24,19 +26,17 @@ const QuestionEditForm = () => {
         e.preventDefault();
         dispatch(updateQuestion({
             question: {
+                id: question.id,
                 title: title, 
                 body: body,
                 authorId: question.authorId,
                 editorId: sessionUser.id,
-                id: question.id,
                 updatedAt: now
             }
         }))
-        history.push('/questions');
+        history.push(`/questions/${question.id}`);
     };
 
-
-    
     return(
         <>
             <div className="container">
@@ -53,7 +53,7 @@ const QuestionEditForm = () => {
                                 <p className="title-text">
                                     Be Specific and imagine you're asking a question to another person
                                 </p>
-                                <input className="title-input-form" onChange={e => setTitle(e.target.value)} placeholder="e.g Is there an R function for finding the index of an element in a vector?" value={title}></input>
+                                <input className="input-form" onChange={e => setTitle(e.target.value)} placeholder="e.g Is there an R function for finding the index of an element in a vector?" value={title}></input>
                             </div>
                             <div className="body-box">
                                 <label className="body label">
