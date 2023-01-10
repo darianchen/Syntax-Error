@@ -62,7 +62,7 @@ const answersReducer = (state= {}, action) => {
             nextState[action.answer.id] = action.answer;
             return nextState;
         case REMOVE_ANSWER:
-            delete nextState[action.userId];
+            delete nextState[action.answerId];
             return nextState;
         default:
             return state;
@@ -70,4 +70,3 @@ const answersReducer = (state= {}, action) => {
 };
 
 export default answersReducer;
-

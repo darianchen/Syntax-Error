@@ -39,7 +39,7 @@ export const deleteQuestion = questionId => async dispatch => {
     dispatch(removeQuestion(questionId));
 };
 
-export const updateQuestion = question=> async dispatch => {
+export const updateQuestion = question => async dispatch => {
     const res = await csrfFetch(`/api/questions/${question.id}`, {
       method: 'PUT',
       body: JSON.stringify(question),
@@ -48,21 +48,9 @@ export const updateQuestion = question=> async dispatch => {
       }
     });
     const data = await res.json();
-    dispatch(receiveQuestion(data));
+    dispatch(receiveQuestion(data.question));
   };
   
-// export const createQuestion = question => async dispatch => {
-//     const res = await csrfFetch('/api/questions', {
-//         method: 'POST',
-//         body: JSON.stringify(question),
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-//     const data = await res.json()
-//     dispatch(getQuestion(data))
-// };
-
 const questionsReducer = (state= {}, action) => {
     Object.freeze(state);
     const nextState = {...state};
@@ -70,10 +58,11 @@ const questionsReducer = (state= {}, action) => {
         case RECEIVE_QUESTIONS:
             return {...state, ...action.questions};
         case RECEIVE_QUESTION:
+            console.log(action, "question");
             nextState[action.question.id] = action.question;
             return nextState;
         case REMOVE_QUESTION:
-            delete nextState[action.userId];
+            delete nextState[action.questionId];
             return nextState;
         default:
             return state;
@@ -81,4 +70,3 @@ const questionsReducer = (state= {}, action) => {
 };
 
 export default questionsReducer;
-
