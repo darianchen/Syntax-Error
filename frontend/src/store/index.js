@@ -4,7 +4,7 @@ import answersReducer from './answers';
 import questionsReducer from './questions';
 import sessionReducer from './session';
 import usersReducer from './users';
-import votesReducer from './vote';
+import votesReducer from './votes';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
