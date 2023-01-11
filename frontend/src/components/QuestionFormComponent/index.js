@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import csrfFetch from "../../store/csrf";
+import { fetchQuestion } from "../../store/questions";
 import './index.css'
 
 const QuestionForm = () => {
      
     const [title, setTitle] = useState();
     const [body, setBody] = useState();
+    const [tags, setTags] = useState([]);
     const author = useSelector(state => state.session.user);   
     const [errors, setErrors] = useState();
     const history = useHistory();
@@ -25,12 +27,22 @@ const QuestionForm = () => {
         });
         if (res.ok){
             let data = await res.json();
-            window.data = data;
+            dispatch(fetchQuestion(data.question.id));
             history.push(`${data.question.id}`);
-        } else{
-            
-        }
+        } 
     };
+
+    const handleKeyDown = (e) => {
+        if(e.code !== 'Space') return
+        const value = e.target.value;
+        if(!value.trim()) return
+        setTags([...tags, value])
+        e.target.value = '';
+    };
+
+    const removeTag = (index) => {
+        setTags(tags.filter((el, i) => i !== index))
+    }
 
     return(
         <>
@@ -41,14 +53,14 @@ const QuestionForm = () => {
                     </div>
                     <div className="question-and-draft">
                         <form id="question-form">
-                            <div className="title-box">
+                            <div className="label-box">
                                 <label className="title label">
                                     Title
                                 </label>
-                                <p className="title-text">
+                                <p className="label-text">
                                     Be Specific and imagine you're asking a question to another person
                                 </p>
-                                <input className="title-input-form" onChange={e => setTitle(e.target.value)} placeholder="e.g Is there an R function for finding the index of an element in a vector?"></input>
+                                <input className="input-form" onChange={e => setTitle(e.target.value)} placeholder="e.g Is there an R function for finding the index of an element in a vector?"></input>
                             </div>
                             <div className="body-box">
                                 <label className="body label">
@@ -60,6 +72,23 @@ const QuestionForm = () => {
                                 <textarea onChange={e => setBody(e.target.value)}>
 
                                 </textarea>
+                            </div>
+                            <div className="label-box">
+                                <label className="tags label">
+                                    Tags
+                                </label>
+                                <p className="label-text">
+                                    Add up to 5 tags to describe what your question is about.
+                                </p>
+                                <div className="tags-input-container"> 
+                                {tags.map((tag,index) => (
+                                    <div className="tag-item" key={index}>
+                                        <span className="tag-text">{tag}</span>
+                                        <span className="tag-close" onClick={() => removeTag(index)}>&times;</span>
+                                    </div>
+                                ))}
+                                <input className="tags-input" onKeyDown={handleKeyDown}placeholder="e.g. (spring vba arrays)"></input>
+                                </div>
                             </div>
                         </form>
 
@@ -93,8 +122,6 @@ const QuestionForm = () => {
                                 </ul>
                             </div>
                         </aside>
-
-
                     </div>
                     <button className="submit-question" onClick={handleClick}>Post your question</button>
                 </div>
