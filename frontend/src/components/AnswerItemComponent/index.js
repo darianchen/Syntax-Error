@@ -1,13 +1,23 @@
-import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {Link} from "react-router-dom";
-import { fetchUser, getUser } from "../../store/users";
 import './index.css'
 import moment from 'moment';
+import { deleteAnswer } from "../../store/answers";
+import { getUser } from "../../store/users";
 
 const AnswerItem = ({answer}) => {
-    const { id, description, answerId, createdAt, editorId, updatedAt} = answer;
     const dispatch = useDispatch();
+    const { id, description, answererId, createdAt} = answer;
+    const answerer = useSelector(getUser(answererId))
+    const sessionUser = useSelector(state => state.session.user);
+    const date = moment(createdAt).fromNow()
+
+
+    
+
+    const handleClick = () => {
+        dispatch(deleteAnswer(id))
+    }
 
     return(
         <div className="answer-container">
@@ -21,10 +31,14 @@ const AnswerItem = ({answer}) => {
                     {description}
                 </div>
             </div>
-            <div className="crud-functions answer-crud">
-                <div className="edit-delete" style={{marginRight:"5px"}}>Edit</div>
-                <div className="edit-delete">Delete</div>
-            </div>
+
+            {sessionUser && sessionUser.id === answererId ?<div className="crud-functions answer-crud">
+                <div style={{display:"flex"}}>
+                    <div className="edit-delete" style={{marginRight:"5px"}}><Link to={`/answers/${id}/edit`}>Edit</Link></div>
+                    <div className="edit-delete" onClick={handleClick}>Delete</div>
+                </div>
+                <div style={{marginLeft:0}}>Answered by <span>{answerer?.displayName}</span> {date}</div>
+            </div> : <div className="crud-functions answer-crud" style={{textAlign:"right"}}><div style={{marginLeft:0, width:"100%"}}>Answered by <span>{answerer?.displayName}</span> {date}</div></div> }
         </div>
         )
     }
