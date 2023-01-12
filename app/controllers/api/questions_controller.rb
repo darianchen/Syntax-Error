@@ -12,6 +12,7 @@ class Api::QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    
     if @question.save
       taggings = params[:taggings]
 

@@ -1,7 +1,7 @@
 class Api::VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
-    if @vote.save
+    if @vote.save!
       render json: {message: "You did it!", vote: @vote}
     else
       render json: @answer.errors.full_messages, status: 422
@@ -43,6 +43,6 @@ class Api::VotesController < ApplicationController
 
   private
   def vote_params
-    params.require(:vote).permit(:voter_id, :post_id, :vote, :type_post)
+    params.require(:vote).permit(:voter_id, :post_id, :vote, :post_type)
   end
 end
