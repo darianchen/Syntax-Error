@@ -45,5 +45,4 @@ class Api::AnswersController < ApplicationController
     def answer_params
       params.require(:answer).permit(:description, :editor_id, :answerer_id, :question_id, :id, :updated_at)
     end
-  
 end
