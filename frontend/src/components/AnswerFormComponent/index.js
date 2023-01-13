@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { fetchAnswer } from "../../store/answers";
+import { fetchAnswers } from "../../store/answers";
 import csrfFetch from "../../store/csrf";
 import './index.css'
 
@@ -20,7 +20,7 @@ const AnswerForm = ({questionId}) => {
         });
         if (res.ok){
             let data = await res.json();
-            dispatch(fetchAnswer(data.answer.id));
+            dispatch(fetchAnswers());
             setDescription("");
         } 
     };

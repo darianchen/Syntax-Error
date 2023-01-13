@@ -24,7 +24,7 @@ const Footer = () => {
                             <Link to="/questions">
                                 <li>Questions</li>
                             </Link>
-                            <a href="https://stackoverflow.com/help">
+                            <a href="https://stackoverflow.com/help" target="_blank">
                                 <li>Help</li>
                             </a>
                         </ul>
@@ -33,16 +33,16 @@ const Footer = () => {
                 <div className="footer-right">
                     <div className="navigation">
                         <ul>
-                            <a href="https://github.com/darianchen">
+                            <a href="https://github.com/darianchen" target="_blank">
                                 <li>Github</li>
                             </a>
-                            <a href="https://www.linkedin.com/in/darianchen/">
+                            <a href="https://www.linkedin.com/in/darianchen/" target="_blank">
                                 <li>LinkedIn</li>
                             </a>
-                            <a href="https://angel.co/u/darian-chen">
+                            <a href="https://angel.co/u/darian-chen" target="_blank">
                                 <li>Wellfound</li>
                             </a>
-                            <a href="https://darianchen.github.io/">
+                            <a href="https://darianchen.github.io/" target="_blank">
                                 <li>Portfolio</li>
                             </a>
                         </ul>

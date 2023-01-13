@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { fetchAnswers, getAnswers } from "../../store/answers";
 import AnswerItem from "../AnswerItemComponent";
-import './index.css';
 
 const AnswerIndex = ({question}) => {
     const sessionUser = useSelector(state => state.session.user);

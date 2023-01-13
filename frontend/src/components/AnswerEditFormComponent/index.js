@@ -13,18 +13,18 @@ const AnswerEditForm = () => {
 
     useEffect(() => {
         if (answer) {
-          setDescription(answer.description);
+            setDescription(answer.description);
         }
-      }, [answer]);
+    }, [answer]);
 
-      const question = useSelector(state => {
+    const question = useSelector(state => {
         if(answer) {
             return state.questions[answer.questionId]
         }
         return null;
-     })
+    })
 
-    if(!sessionUser) history.push('/login');    
+    if(!sessionUser) history.push('/login');
 
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -33,7 +33,7 @@ const AnswerEditForm = () => {
                 description: description,
                 id: answer.id,
                 editorId: answer.answererId,
-                answererId: answer.answererId,       
+                answererId: answer.answererId,
             }
         }))
         history.push(`/questions/${answer.questionId}`);
