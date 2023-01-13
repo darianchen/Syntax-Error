@@ -2,7 +2,7 @@ class Api::VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
     if @vote.save!
-      render json: {message: "You did it!", vote: @vote}
+      render :show
     else
       render json: @answer.errors.full_messages, status: 422
     end
