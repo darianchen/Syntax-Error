@@ -58,7 +58,6 @@ const questionsReducer = (state= {}, action) => {
         case RECEIVE_QUESTIONS:
             return {...state, ...action.questions};
         case RECEIVE_QUESTION:
-            console.log(action, "question");
             nextState[action.question.id] = action.question;
             return nextState;
         case REMOVE_QUESTION:

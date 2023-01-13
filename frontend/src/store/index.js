@@ -3,15 +3,15 @@ import thunk from 'redux-thunk';
 import answersReducer from './answers';
 import questionsReducer from './questions';
 import sessionReducer from './session';
+import tagsReducer from './tags';
 import usersReducer from './users';
-import votesReducer from './votes';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   users: usersReducer,
   questions: questionsReducer,
   answers: answersReducer,
-  votes: votesReducer
+  tags: tagsReducer
 });
 
 let enhancer;
