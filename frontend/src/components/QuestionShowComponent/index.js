@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { deleteQuestion, getQuestion } from "../../store/questions";
+import { deleteQuestion, getQuestion, fetchQuestions } from "../../store/questions";
 import LeftSidebar from "../LeftSidebarComponent";
 import "./index.css";
 import moment from "moment";
@@ -11,6 +11,7 @@ import { getAnswers } from "../../store/answers";
 import AnswerIndex from "../AnswerIndexComponent";
 import Vote from "../VoteComponent";
 import { getUsers } from "../../store/users";
+import TagsComponent from "../TagIndexComponent/tags.js"
 
 const QuestionShow = () => {
   window.scrollTo(0, 0);
@@ -48,9 +49,13 @@ const QuestionShow = () => {
     }
   }, [question]);
 
+  useEffect(() => {
+    dispatch(fetchQuestions())
+  },[])
+
   const handleClick = (e) => {
     if (sessionUser) {
-      history.push("/questions/ask");
+      history.push("/questions/ask")
     } else {
       history.push("/login");
     }
@@ -60,6 +65,10 @@ const QuestionShow = () => {
     dispatch(deleteQuestion(questionId));
     history.push("/questions");
   };
+
+  const dispatchQuestion = () => {
+    dispatch(fetchQuestions())
+  }
 
   if (question) {
     return (
@@ -84,9 +93,14 @@ const QuestionShow = () => {
               <li></li>
             </ul>
             <hr></hr>
-            <div className="question-show-bottom">
-              <Vote post={question} sessionUser={sessionUser} />
-              <div className="question-body">{question.body}</div>
+            <div className="question-show-bottom" >
+              <Vote key={`question${question.id}`} post={question} sessionUser={sessionUser} isAnswer={false} dispatchPost={dispatchQuestion}/>
+              <div className="question-body">
+                {question.body}
+                <div className="question-tags">
+                  <TagsComponent tags={question?.tagsAttributes} />
+                </div>
+              </div>
             </div>
             {sessionUser && sessionUser.id === question.authorId ? (
               <div className="crud-functions">

@@ -41,7 +41,7 @@ const LeftSidebar = () => {
                         
                         <Link to="/tags"><li className="left-sidebar-tags left-sidebar-link">Tags</li></Link>
 
-                        <Link to="/users"><li className="left-sidebar-users left-sidebar-link">Users</li></Link>
+                        {/* <Link to="/users"><li className="left-sidebar-users left-sidebar-link">Users</li></Link> */}
                     </ul>
                 </div>
             </div>

@@ -54,6 +54,16 @@
     display: flex;
 }
 
+.answer-body{
+    width: 100%;
+    padding: 15px;
+    font-size: 15px;
+    color: #333333;
+}
+
+.answer-show-bottom{
+    display: flex;
+}
 .crud-functions{
     display: flex;
     justify-content: space-between;
@@ -81,4 +91,9 @@
 
 .arrow{
     cursor: pointer;
+}
+
+.question-tags{
+    margin-top: 30px;
+    margin-left: 30px;
 }

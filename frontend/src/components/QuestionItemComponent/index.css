@@ -29,6 +29,7 @@
 }
 
 .question-content-summary-body{
+    position: relative;
     color: #3b4045;
 }
 
@@ -40,10 +41,10 @@
 }
 
 .question-content-summary-bottom-user-card{
-    display: flex;
+    position: absolute;
     justify-content: space-between;
-    margin-top: 50px;
     width: 600px;
+    margin-top: 20px;
     bottom: 5%;
 }
 

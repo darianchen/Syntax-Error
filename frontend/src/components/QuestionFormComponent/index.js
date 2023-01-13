@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import csrfFetch from "../../store/csrf";
-import { fetchQuestion } from "../../store/questions";
+import { fetchQuestions } from "../../store/questions";
 import './index.css'
 
 const QuestionForm = () => {
@@ -11,7 +11,6 @@ const QuestionForm = () => {
     const [body, setBody] = useState();
     const [tags, setTags] = useState([]);
     const author = useSelector(state => state.session.user);   
-    const [errors, setErrors] = useState();
     const history = useHistory();
 
     const dispatch = useDispatch();
@@ -20,21 +19,26 @@ const QuestionForm = () => {
 
     const handleClick = async e => {
         e.preventDefault();
-        const question = {title: title, body: body, author_id: author.id};
+        const question = {
+            title: title,
+            body: body,
+            author_id: author.id,
+            taggings: tags
+        };
         const res = await csrfFetch('/api/questions', {
             method: 'POST',
             body: JSON.stringify(question)
         });
         if (res.ok){
             let data = await res.json();
-            dispatch(fetchQuestion(data.question.id));
+            dispatch(fetchQuestions());
             history.push(`${data.question.id}`);
         } 
     };
 
     const handleKeyDown = (e) => {
         if(e.code !== 'Space') return
-        const value = e.target.value;
+        const value = e.target.value.trim();
         if(!value.trim()) return
         setTags([...tags, value])
         e.target.value = '';
