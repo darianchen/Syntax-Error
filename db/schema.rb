@@ -77,3 +77,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_05_211952) do
   add_foreign_key "questions", "users", column: "author_id"
   add_foreign_key "questions", "users", column: "editor_id"
 end
+

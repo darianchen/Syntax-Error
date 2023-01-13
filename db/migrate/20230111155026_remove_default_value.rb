@@ -3,3 +3,4 @@ class RemoveDefaultValue < ActiveRecord::Migration[7.0]
     change_column_default :votes, :post_id, nil
   end  
 end
+

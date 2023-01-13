@@ -4,3 +4,4 @@ class RefactorVotesAndTags < ActiveRecord::Migration[7.0]
   end
 end
     # remove_column :tags, :taglist
+    

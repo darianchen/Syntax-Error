@@ -6,3 +6,4 @@ class RefactorVotes < ActiveRecord::Migration[7.0]
     add_index :votes, :post_id
   end
 end
+
