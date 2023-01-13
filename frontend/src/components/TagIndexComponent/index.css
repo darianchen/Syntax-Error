@@ -1,0 +1,17 @@
+.tags-list {
+    display: flex;
+    justify-items: space-between;
+  }
+  
+  .tags-item{
+    display: inline-table;
+    width: 50px;
+    margin-right: 10px;
+    margin-top: 15px;
+  }
+  
+  .tag-item {
+    color: #39739d;
+    background-color: #e1ecf4;
+    border-color: #00000000;
+  }
