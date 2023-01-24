@@ -4,7 +4,6 @@ import './index.css'
 
 const LeftSidebar = () => {
     const path = window.location.pathname;
-    console.log(path)
     useEffect( () => {
         switch (path){
             case "/":

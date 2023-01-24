@@ -27,7 +27,6 @@ const QuestionForm = () => {
             let data = await res.json();
             window.data = data;
             history.push(`${data.question.id}`);
-            console.log(data);
         } else{
             
         }
