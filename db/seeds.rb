@@ -72,7 +72,7 @@ ApplicationRecord.transaction do
           Question.create!({
             title: Faker::Hacker.say_something_smart,
             body: Faker::Quotes::Shakespeare.hamlet_quote,
-            author_id: rand(1..12)
+            author_id: rand(4)
           }) 
         end
 
