@@ -4,13 +4,12 @@
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
-    padding: 48px;
+    padding: 20px;
     background-color: #f8f9f9;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 #black-box{
-    height: 100%;
     border-radius: 7px;
     padding: 32px;
     background-color: #383d43;
@@ -34,7 +33,7 @@
     display: block;
     position: relative;
     text-align: center;
-    padding: 24px;
+    padding: 15px;
     background-color: #ffe3cd;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
@@ -49,7 +48,7 @@
     display: block;
     position: relative;
     text-align: center;
-    padding: 24px;
+    padding: 15px;
     background-color: #cde9fe;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
@@ -167,10 +166,10 @@
 .animation-container{
     font-family: 'Roboto Slab', serif;
     text-align: center;
-    font-size: 55px;
+    font-size: 45px;
     line-height: 72px;
     color: white;
-    padding: 64px 0px;
+    padding: 40px 0px;
 }
 
 .job{
@@ -215,10 +214,16 @@
     width: 64px;
 }
 
-.svgs{
-    margin-top: 20px;
+.svg-container{
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+}
+
+.svgs{
+    display: flex;
+    justify-content: space-evenly;
+    width: 550px;
 }
 
 .tool{
@@ -227,4 +232,9 @@
     text-align: center;
     font-weight: 500;
     user-select: none;
+    color: #ffffff;
+}
+
+.links{
+    margin-top: 46px;
 }

@@ -33,7 +33,6 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="nav-container">
                 <div className="nav-left">
-                    <BurgerMenu/>
                     <Link to="/" className="nav-logo">
                         <img className="syntaxError-logo-img" src={logo} alt="syntaxError"></img>
                     </Link>

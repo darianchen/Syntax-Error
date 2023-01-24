@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "moment": "^2.29.4",
-    "momentjs": "^2.0.0"
+    "momentjs": "^2.0.0",
+    "react-icons": "^4.7.1"
   }
 }
