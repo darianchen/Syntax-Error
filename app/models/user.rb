@@ -14,7 +14,8 @@
 #
 class User < ApplicationRecord
     has_secure_password
-  
+    has_many :questions, dependent: :destroy
+
     validates :display_name,
       presence: true,
       length: { maximum: 30 }, 
