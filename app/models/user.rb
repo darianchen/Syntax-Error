@@ -14,7 +14,7 @@
 #
 class User < ApplicationRecord
     has_secure_password
-    has_many :questions, dependent: :destroy foreign_key: :author_id
+    has_many :questions, dependent: :destroy, foreign_key: :author_id
     validates :display_name,
       presence: true,
       length: { maximum: 30 }, 
