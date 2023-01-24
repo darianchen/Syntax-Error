@@ -44,7 +44,6 @@ const QuestionItem = ({question}) => {
                 <div className="question-stats">
                     <div className="question-index-votes">votes</div>
                     <div className="question-index-answers">answers</div>
-                    <div className="question-index-views">views</div>
                 </div>
                 <div className="question-content-summary">
                     <Link to={`/questions/${id}`}> <h3 className="question-listing-title">{title}</h3></Link>

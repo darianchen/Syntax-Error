@@ -33,7 +33,6 @@ const QuestionIndex = () => {
         return(
             <>
                 <div className="page-content">
-                    <LeftSidebar/>
                     <div className="question-index-right">
                         <div className="question-index-header"><h1>All Questions</h1>
                             <button onClick={handleClick} className="question-index-button">Ask Question</button>
