@@ -22,7 +22,6 @@ const QuestionEditForm = () => {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        debugger
         dispatch(updateQuestion({
             question: {
                 title: title, 

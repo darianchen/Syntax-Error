@@ -35,13 +35,11 @@ export const fetchQuestions = () => async dispatch => {
 };
 
 export const deleteQuestion = questionId => async dispatch => {
-    debugger
     await csrfFetch(`/api/questions/${questionId}`, {method: "DELETE"});
     dispatch(removeQuestion(questionId));
 };
 
 export const updateQuestion = question=> async dispatch => {
-    debugger
     const res = await csrfFetch(`/api/questions/${question.id}`, {
       method: 'PUT',
       body: JSON.stringify(question),
