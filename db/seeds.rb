@@ -49,17 +49,17 @@ ApplicationRecord.transaction do
     end
 
 
-    # Question.create!(
-    #       title: 'How do I become a software engineer?',
-    #       body: 'I literally have no idea where to start?. Can someone help me?!', 
-    #       author_id: '2'
-    #   )
+    Question.create!(
+          title: 'How do I become a software engineer?',
+          body: 'I literally have no idea where to start?. Can someone help me?!', 
+          author_id: '1'
+      )
 
-    #   Question.create!(
-    #         title: 'Why is the sky blue?',
-    #         body: 'One of the biggest mysteries ever.', 
-    #         author_id: '3'
-    #     )
+      # Question.create!(
+      #       title: 'Why is the sky blue?',
+      #       body: 'One of the biggest mysteries ever.', 
+      #       author_id: '3'
+      #   )
 
     #     Question.create!(
     #           title: 'How to make <hr> full width of page irrespective of the parent?',
