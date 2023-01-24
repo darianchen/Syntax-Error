@@ -49,38 +49,38 @@ ApplicationRecord.transaction do
     end
 
 
-    Question.create!(
-          title: 'How do I become a software engineer?',
-          body: 'I literally have no idea where to start?. Can someone help me?!', 
-          author_id: '2'
-      )
+    # Question.create!(
+    #       title: 'How do I become a software engineer?',
+    #       body: 'I literally have no idea where to start?. Can someone help me?!', 
+    #       author_id: '2'
+    #   )
 
-      Question.create!(
-            title: 'Why is the sky blue?',
-            body: 'One of the biggest mysteries ever.', 
-            author_id: '3'
-        )
+    #   Question.create!(
+    #         title: 'Why is the sky blue?',
+    #         body: 'One of the biggest mysteries ever.', 
+    #         author_id: '3'
+    #     )
 
-        Question.create!(
-              title: 'How to make <hr> full width of page irrespective of the parent?',
-              body: 'Could you tell me how to limit content width to the screen boundary? For the following script i always get 2px width wider than screen (allowed space) width.
-              document.body.scrollWidth is always 2px wider than screen', 
-              author_id: '13'
-          )
+    #     Question.create!(
+    #           title: 'How to make <hr> full width of page irrespective of the parent?',
+    #           body: 'Could you tell me how to limit content width to the screen boundary? For the following script i always get 2px width wider than screen (allowed space) width.
+    #           document.body.scrollWidth is always 2px wider than screen', 
+    #           author_id: '13'
+    #       )
     
-        4.times do 
-          Question.create!({
-            title: Faker::Hacker.say_something_smart,
-            body: Faker::Quotes::Shakespeare.hamlet_quote,
-            author_id: rand(4)
-          }) 
-        end
+    #     4.times do 
+    #       Question.create!({
+    #         title: Faker::Hacker.say_something_smart,
+    #         body: Faker::Quotes::Shakespeare.hamlet_quote,
+    #         author_id: rand(4)
+    #       }) 
+    #     end
 
-        Question.create!(
-          title: 'Darian is the best programmer in the entire cohort!',
-          body: 'HIRE HIM', 
-          author_id: '4'
-      )
+    #     Question.create!(
+    #       title: 'Darian is the best programmer in the entire cohort!',
+    #       body: 'HIRE HIM', 
+    #       author_id: '4'
+    #   )
   
     puts "Done!"
   end
