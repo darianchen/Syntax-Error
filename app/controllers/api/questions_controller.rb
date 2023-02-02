@@ -10,7 +10,7 @@ class Api::QuestionsController < ApplicationController
       if @question.save
         render 'api/questions/show'
       else
-
+        render json: @question.errors.full_messages, status: 422
       end
     end
   
@@ -37,10 +37,17 @@ class Api::QuestionsController < ApplicationController
     end
 
     def destroy
-      @question = Question.find(params[:id])
-      if @question.destroy
-          render json: { errors: @question.errors.full_messages }, status: :unprocessable_entity
-      end 
+      @question = Question.find_by(id: params[:id])
+      if @question.nil?
+        render json: ['Question cannot be found'], status: 422
+      else
+        if current_user.id == @question.author_id 
+          @question.destroy!
+          render :show
+        else
+          render json: ['Question is not destroyed'], status: 422
+        end
+      end
     end
 
     private

@@ -10,7 +10,6 @@ const QuestionItem = ({question}) => {
     const { id, title, body, authorId, createdAt, editorId, updatedAt} = question;
     const dispatch = useDispatch();
     const user = useSelector(getUser(authorId));
-    let editor = useSelector(getUser(editorId));
     let editedBy = "";
     const filteredAnswers = [];
 
@@ -22,20 +21,17 @@ const QuestionItem = ({question}) => {
         }
     })
     
-    const now = moment(updatedAt).fromNow();
+    const now = moment(createdAt).fromNow();
 
+    editedBy = "Edited " + now;
 
-    if(editor) {
-        editedBy = "Edited by " + editor.displayName + " " + now;
-    }
-
-  
-
+    // if(editor) {
+    //     editedBy = "Edited by " + editor.displayName + " " + now;
+    // }
 
     useEffect(() => {
         dispatch(fetchUser(authorId));
-        dispatch(fetchAnswers());  
-    },[question]);
+    },[]);
 
     const getBody = (body) => {
         return body.split(/\s+/).slice(0,10).join(" ");
@@ -49,7 +45,6 @@ const QuestionItem = ({question}) => {
 
     if (user) {
     return(
-
             <div className="question-container">
                 <div className="question-stats">
                     <div className="question-index-votes">votes</div>
@@ -58,7 +53,7 @@ const QuestionItem = ({question}) => {
                 <div className="question-content-summary">
                     <Link to={`/questions/${id}`}> <h3 className="question-listing-title">{title}</h3></Link>
                     <div className="question-content-summary-body">{getBody(body)} ...</div>
-                    <div className="question-content-summary-bottom-user-card"><div>{user.displayName} asked {dateTimeAgo}</div> <div className="editor">{editedBy}</div></div>
+                    <div className="question-content-summary-bottom-user-card"><div>{user.displayName} asked {dateTimeAgo}</div> <div className="editor">{}</div></div>
                 </div>
             </div>
         )

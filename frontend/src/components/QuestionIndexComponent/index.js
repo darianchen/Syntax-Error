@@ -22,9 +22,6 @@ const QuestionIndex = () => {
 
     let questions = useSelector(getQuestions).slice().reverse();
     
-    useEffect(() => {
-         dispatch(fetchQuestions());
-    }, []);
 
     const mapQuestions = () => {
         return questions.map(question => (
@@ -40,7 +37,6 @@ const QuestionIndex = () => {
                             {mapQuestions()} 
                     </div>
                 </div>
-                <Footer/>
             </>
         )
 };

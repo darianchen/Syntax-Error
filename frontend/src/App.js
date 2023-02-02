@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Route, Switch } from 'react-router-dom'
 import LoginFormPage from "./components/LoginFormComponent";
 import Navbar from "./components/Nav";
-import Navigation from "./components/Navigation";
 import SignupFormPage from "./components/SignupFormComponent";
 import UserPage from "./components/UserShowComponent";
 import SplashPage from "./components/Splash";
@@ -15,12 +14,15 @@ import { useDispatch } from "react-redux";
 import { fetchUsers } from "./store/users";
 import QuestionEditForm from "./components/QuestionEditFormComponent";
 import { fetchQuestions } from "./store/questions";
+import AnswerEditForm from "./components/AnswerEditFormComponent";
+import { fetchAnswers } from "./store/answers";
 
 function App() {
   const dispatch = useDispatch();
-  useEffect( () => {
-    dispatch(fetchUsers());
+  useEffect(() => {
     dispatch(fetchQuestions());
+    dispatch(fetchUsers());
+    dispatch(fetchAnswers());
   },[])
 
   return (
@@ -66,6 +68,10 @@ function App() {
 
           <Route exact path="/tags">
               <TagIndexComponent/>
+          </Route>
+
+          <Route exact path="/answers/:answerId/edit">
+              <AnswerEditForm/>
           </Route>
             
       </Switch>

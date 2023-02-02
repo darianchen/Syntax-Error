@@ -4,12 +4,14 @@ import answersReducer from './answers';
 import questionsReducer from './questions';
 import sessionReducer from './session';
 import usersReducer from './users';
+import votesReducer from './vote';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   users: usersReducer,
   questions: questionsReducer,
-  answers: answersReducer
+  answers: answersReducer,
+  votes: votesReducer
 });
 
 let enhancer;

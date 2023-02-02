@@ -15,6 +15,8 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :questions, dependent: :destroy, foreign_key: :author_id
+    has_many :answers, dependent: :destroy, foreign_key: :answerer_id
+    has_many :votes, dependent: :destroy, foreign_key: :voter_id
     validates :display_name,
       presence: true,
       length: { maximum: 30 }, 

@@ -7,7 +7,6 @@ class Api::AnswersController < ApplicationController
     def create
       @answer = Answer.new(answer_params)
       if @answer.save!
-        puts "success"
         render 'api/answers/show'
       else
         render json: @answer.errors.full_messages, status: 422
@@ -20,7 +19,7 @@ class Api::AnswersController < ApplicationController
     end
   
     def update
-      @answer = Answer.find_by(id: params[:id])
+      @answer = Answer.find_by(id: answer_params[:id])
       if @answer.answerer_id == current_user.id && @answer.update(answer_params)
         render :show
       else

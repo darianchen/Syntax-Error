@@ -150,7 +150,7 @@ function LoginFormPage() {
         <div>
           Don't have an account?
           <Link to="/signup">
-          <a href="#"> Sign up</a>
+            <span> Sign up</span>
           </Link>
         </div>
       </div>
