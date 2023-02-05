@@ -70,4 +70,3 @@ const answersReducer = (state= {}, action) => {
 };
 
 export default answersReducer;
-
