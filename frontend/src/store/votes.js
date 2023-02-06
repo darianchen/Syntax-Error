@@ -7,7 +7,7 @@ const REMOVE_VOTE = "REMOVE_VOTE";
 export const makeVote = (voterId, postId, vote, type, dispatchPost) => async(dispatch) => {
     const res = await csrfFetch( MAKE_VOTE, {
         method: 'POST',
-        body: JSON.stringify({vote: {voterId: voterId, postId: postId, vote: vote, post_type: type}})
+        body: JSON.stringify({vote: {voterId: voterId, postId: postId, vote: vote, postType: type}})
     });
 
     let data = await res.json();
