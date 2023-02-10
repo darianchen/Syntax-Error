@@ -1,7 +1,7 @@
 class Api::VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
-    if @vote.save!
+    if @vote.save
       render :show
     else
       render json: @vote.errors.full_messages, status: 422
