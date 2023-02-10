@@ -4,7 +4,7 @@ class Api::VotesController < ApplicationController
     if @vote.save!
       render :show
     else
-      render json: @answer.errors.full_messages, status: 422
+      render json: @vote.errors.full_messages, status: 422
     end
   end
 
