@@ -16,6 +16,15 @@ class Question < ApplicationRecord
 
     has_many :answers, dependent: :destroy
 
+    has_many :taggings,
+        foreign_key: :question_id,
+        class_name: :Tagging,
+        dependent: :destroy
+
+    has_many :tags,
+        through: :taggings,
+        source: :tags
+
     has_many :votes, dependent: :destroy, foreign_key: :post_id
 
     belongs_to :author,
