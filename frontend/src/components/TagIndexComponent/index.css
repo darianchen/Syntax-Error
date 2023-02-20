@@ -3,6 +3,12 @@
     justify-items: space-between;
   }
   
+  .tax-index{
+    padding: 0px 0 24px 0px;
+    border-left:1px solid #E4E6E7;
+    width: 783px;
+  }
+
   .tags-item{
     display: inline-table;
     width: 50px;

@@ -3,32 +3,7 @@ import { Link } from "react-router-dom";
 import './index.css'
 
 const LeftSidebar = () => {
-    const path = window.location.pathname;
-    useEffect( () => {
-        switch (path){
-            case "/":
-                document.querySelector(".left-sidebar-home").style.backgroundColor = "#F1F2F3";
-                document.querySelector(".left-sidebar-home").style.borderRight = "4px solid orange";
-                break;
-            case "/questions":
-                document.querySelector(".left-sidebar-questions").style.backgroundColor = "#F1F2F3";
-                document.querySelector(".left-sidebar-questions").style.borderRight = "4px solid orange";
-                break;
-            case "/questions/":
-                document.querySelector(".left-sidebar-questions").style.backgroundColor = "#F1F2F3";
-                document.querySelector(".left-sidebar-questions").style.borderRight = "4px solid orange";
-                break;
-            case "/tags":
-                document.querySelector(".left-sidebar-tags").style.backgroundColor = "#F1F2F3";
-                document.querySelector(".left-sidebar-tags").style.borderRight = "4px solid orange";
-                break;
-            case "/users":
-                break;
-        default:
-            
-        }
-    });
-
+   
     return(
         <>
             <div className="left-sidebar">

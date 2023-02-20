@@ -16,8 +16,9 @@ const TagIndexComponent = () => {
         <>
             <div className="page-content">
                 <LeftSidebar/>
-                <TagsComponent tags={tags} />
-
+                <div className="tag-index">
+                    <TagsComponent tags={tags} />
+                </div>
             </div>
         </>
     )
