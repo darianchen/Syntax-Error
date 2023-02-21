@@ -6,7 +6,6 @@ import LeftSidebar from "../LeftSidebarComponent";
 import "./index.css";
 import moment from "moment";
 import AnswerForm from "../AnswerFormComponent";
-import Footer from "../Footer";
 import { getAnswers } from "../../store/answers";
 import AnswerIndex from "../AnswerIndexComponent";
 import Vote from "../VoteComponent";
@@ -25,21 +24,11 @@ const QuestionShow = () => {
   const filteredAnswers = [];
   const answers = useSelector(getAnswers).slice();
 
-  //     answers.filter(answer=>
-  // if (parseInt(answer.questionId)===(parseInt.questionId))
-  // filteredAnswerspushanswer
-
   answers.filter((answer) => {
     if (parseInt(answer.questionId) === parseInt.questionId) {
       filteredAnswers.push(answer);
     }
   });
-
-  // useEffect=>
-  // forconstkeyvalueofObjectentriesusers
-  // ifvalueid===questionauthorId
-  // setDisplayNamevaluedisplayName
-  // question
 
   useEffect(() => {
     for (const [key, value] of Object.entries(users)) {
@@ -129,7 +118,6 @@ const QuestionShow = () => {
             )}
           </div>
         </div>
-        <Footer />
       </>
     );
   }

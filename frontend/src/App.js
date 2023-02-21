@@ -17,6 +17,7 @@ import { fetchQuestions } from "./store/questions";
 import AnswerEditForm from "./components/AnswerEditFormComponent";
 import { fetchAnswers } from "./store/answers";
 import LeftSidebar from "./components/LeftSidebarComponent";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +54,7 @@ function App() {
 
           <Route exact path="/questions">
             <QuestionIndex/>
+            <Footer/>
           </Route>
 
           <Route exact path="/questions/ask">
@@ -61,6 +63,7 @@ function App() {
 
           <Route exact path="/questions/:questionId">
               <QuestionShow/>
+              <Footer/>
           </Route>
 
           <Route exact path="/questions/:questionId/edit">

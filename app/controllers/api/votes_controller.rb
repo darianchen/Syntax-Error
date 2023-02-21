@@ -1,6 +1,7 @@
 class Api::VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
+    
     if @vote.save
       render :show
     else
