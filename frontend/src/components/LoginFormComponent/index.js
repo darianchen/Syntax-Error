@@ -4,16 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect, useHistory, useNavigate } from "react-router-dom";
 import './LoginForm.css';
 import Typewriter from 'typewriter-effect/dist/core'
+import { useRef } from "react";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -69,9 +70,13 @@ function LoginFormPage() {
 
   const handleDemo = (e) => {
     e.preventDefault();
-    document.querySelector(".demo").disabled = true;
-    document.querySelector("#email").disabled = true;
-    document.querySelector("#password").disabled = true;
+    setEmail("");
+    setPassword("");
+    setDisabled(!disabled);
+
+    // document.querySelector(".demo").disabled = true;
+    // document.querySelector("#email").disabled = true;
+    // document.querySelector("#password").disabled = true;
 
     let emailDOM = document.getElementById("email");
     let passwordDOM = document.getElementById("password")
@@ -128,6 +133,7 @@ function LoginFormPage() {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              disabled={disabled}
             />
             {errors.map(error => <li key={error}>{error}</li>)}
             {emailError && <p style={{color: 'red'}}>{emailError}</p>}
@@ -140,11 +146,12 @@ function LoginFormPage() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              disabled={disabled}
             />
             {passwordError && <p style={{color: 'red'}}>{passwordError}</p>}
 
-            <button className="login-button log-hover" type="submit">Log in</button>
-            <button className="demo" type="submit" onClick={handleDemo}>Demo login</button>
+            <button className="login-button log-hover" type="submit" disabled={disabled}>Log in</button>
+            <button className="demo" type="submit" onClick={handleDemo} disabled={disabled}>Demo login</button>
       </div>
       <div className="link">
         <div>

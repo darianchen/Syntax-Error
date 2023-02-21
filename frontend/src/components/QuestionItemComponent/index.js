@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import { fetchUser, getUser } from "../../store/users";
 import './index.css'
 import moment from 'moment';
-import { fetchAnswers, getAnswers } from "../../store/answers";
+import { getAnswers } from "../../store/answers";
 import TagsComponent from "../TagIndexComponent/tags.js"
 
 const QuestionItem = ({question}) => {
@@ -23,9 +23,6 @@ const QuestionItem = ({question}) => {
         }
     })
     
-    const now = moment(createdAt).fromNow();
-
-
     useEffect(() => {
         dispatch(fetchUser(authorId));
     },[]);
@@ -40,7 +37,7 @@ const QuestionItem = ({question}) => {
     return(
             <div className="question-container">
                 <div className="question-stats">
-                    <div className="question-index-votes">{initialVotes}</div>
+                    <div className="question-index-votes">{initialVotes === 1 ? initialVotes + " vote" : initialVotes + " votes"}</div>
                     <div className="question-index-answers">{filteredAnswers.length === 1 ? filteredAnswers.length + " answer" : filteredAnswers.length + " answers"}</div>
                 </div>
                 <div className="question-content-summary">
