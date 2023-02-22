@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { fetchAnswers } from "../../store/answers";
 import csrfFetch from "../../store/csrf";
 import './index.css'

@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { deleteQuestion, getQuestion, fetchQuestions } from "../../store/questions";
-import LeftSidebar from "../LeftSidebarComponent";
 import "./index.css";
 import moment from "moment";
 import AnswerForm from "../AnswerFormComponent";
-import { getAnswers } from "../../store/answers";
 import AnswerIndex from "../AnswerIndexComponent";
 import Vote from "../VoteComponent";
 import { getUsers } from "../../store/users";
@@ -17,18 +15,10 @@ const QuestionShow = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
-  const { questionId } = useParams();
+  const questionId = useParams().questionId;
   const question = useSelector(getQuestion(questionId));
   const users = useSelector(getUsers).slice();
   const [displayName, setDisplayName] = useState();
-  const filteredAnswers = [];
-  const answers = useSelector(getAnswers).slice();
-
-  answers.filter((answer) => {
-    if (parseInt(answer.questionId) === parseInt.questionId) {
-      filteredAnswers.push(answer);
-    }
-  });
 
   useEffect(() => {
     for (const [key, value] of Object.entries(users)) {
@@ -104,8 +94,8 @@ const QuestionShow = () => {
               ""
             )}
 
-            <div className="answer-count">{filteredAnswers.length} Answers</div>
-            <AnswerIndex />
+            <div className="answer-count">{question.answerCount} Answers</div>
+            <AnswerIndex questionId={questionId} />
             {sessionUser ? <AnswerForm questionId={questionId} /> : ""}
             {sessionUser ? (
               ""

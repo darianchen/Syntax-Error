@@ -5,6 +5,7 @@ const LeftSidebar = () => {
    
     return(
         <>
+        <div className="left-sidebar-container">
             <div className="left-sidebar">
                 <div className="left-sidebar-content d-none d-xl-block">
                     <NavLink exact to="/" activeClassName="left-sidebar-selected" className="left-sidebar-questions left-sidebar-link">Home</NavLink>
@@ -19,6 +20,7 @@ const LeftSidebar = () => {
                     </ul>
                 </div>
             </div>
+        </div>
         </>
     )
 };

@@ -1,38 +1,23 @@
-import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
-import { fetchAnswers, getAnswers } from "../../store/answers";
+import { getQuestion } from "../../store/questions";
 import AnswerItem from "../AnswerItemComponent";
 
-const AnswerIndex = () => {
-    const {questionId} = useParams();
-    const filteredAnswers = [];
-    const dispatch = useDispatch();
-    let answers = useSelector(getAnswers).slice();
-
-    answers.filter(answer => {
-        if(parseInt(answer.questionId) === parseInt(questionId)){
-            filteredAnswers.push(answer);
-        }
-    })
-       
-    useEffect(() => {
-         dispatch(fetchAnswers())       
-    }, []);
-
-
-    const mapAnswers = () => {
-        return filteredAnswers.map(answer => (
-            <AnswerItem key={answer.id} answer={answer}/>
-        ))
+    const AnswerIndex = ({questionId}) => {
+        const dispatch = useDispatch();
+        let answers = useSelector(getQuestion(questionId)).answers;
+  
+        const mapAnswers = () => {
+            return answers.map(answer => (
+                <AnswerItem key={answer.id} answer={answer}/>
+            ))
+        };
+            return(
+                <>  
+                <div>
+                    {mapAnswers()}
+                </div>
+                </>
+            )
     };
-        return(
-            <>  
-            <div>
-                {mapAnswers()}
-            </div>
-            </>
-        )
-};
 
-export default AnswerIndex;
+    export default AnswerIndex;

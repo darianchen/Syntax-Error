@@ -38,7 +38,7 @@ const QuestionItem = ({question}) => {
             <div className="question-container">
                 <div className="question-stats">
                     <div className="question-index-votes">{initialVotes === 1 ? initialVotes + " vote" : initialVotes + " votes"}</div>
-                    <div className="question-index-answers">{filteredAnswers.length === 1 ? filteredAnswers.length + " answer" : filteredAnswers.length + " answers"}</div>
+                    <div className="question-index-answers">{question.answerCount === 1 ? question.answerCount + " answer" : question.answerCount + " answers"}</div>
                 </div>
                 <div className="question-content-summary">
                     <Link to={`/questions/${id}`}> <h3 className="question-listing-title">{title}</h3></Link>
