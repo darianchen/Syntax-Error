@@ -45,8 +45,8 @@ return(
             <div className='header'>
                 <div className="headline">Edit a public answer</div>
             </div>
-            <div className="question-and-draft">
-                <div>{question?.title}</div>
+            <div>
+                <div style={{marginBottom:"5px"}}>Question: {question?.title}</div>
                 <form id="question-form">
                     <div className="body-box">
                         <textarea onChange={e => setDescription(e.target.value)} value={description}>

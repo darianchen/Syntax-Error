@@ -31,11 +31,11 @@ function App() {
   return (
     <>
       <Navbar />
+      <div id="page-content">
         <Switch>
-
         <Route exact path="/">
+              {sessionUser ? <LeftSidebar/> : ""}
               <SplashPage />
-              {sessionUser ?  <Footer/> : ""}
         </Route>
 
           <Route path="/login">
@@ -55,8 +55,8 @@ function App() {
           </Route>
 
           <Route exact path="/questions">
+            <LeftSidebar/>
             <QuestionIndex/>
-            <Footer/>
           </Route>
 
           <Route exact path="/questions/ask">
@@ -64,8 +64,8 @@ function App() {
           </Route>
 
           <Route exact path="/questions/:questionId">
+              <LeftSidebar />
               <QuestionShow/>
-              <Footer/>
           </Route>
 
           <Route exact path="/questions/:questionId/edit">
@@ -73,15 +73,16 @@ function App() {
           </Route>
 
           <Route exact path="/tags">
+              <LeftSidebar/>
               <TagIndexComponent/>
-              <Footer/>
           </Route>
 
           <Route exact path="/answers/:answerId/edit">
               <AnswerEditForm/>
-          </Route>
-            
+          </Route>     
       </Switch>
+      </div>
+      <Footer/>
     </>
   );
 }

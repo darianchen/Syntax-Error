@@ -1,18 +1,10 @@
-.question-show-container{
-    display: flex;
-    justify-content: center;
-    background-color: #FFFFFF;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-
 .displayName{
     color: #0074cc;
 }
 .question-show-content{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     border-left: 2px solid #E4E6E7;
-    width: 751px;
-    height: 100%;
+    width: 762px;
     padding: 24px;
 }
 

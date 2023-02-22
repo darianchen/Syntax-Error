@@ -4,9 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { fetchAnswers, getAnswers } from "../../store/answers";
 import AnswerItem from "../AnswerItemComponent";
 
-const AnswerIndex = ({question}) => {
-    const sessionUser = useSelector(state => state.session.user);
-    const history = useHistory();
+const AnswerIndex = () => {
     const {questionId} = useParams();
     const filteredAnswers = [];
     const dispatch = useDispatch();

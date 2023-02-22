@@ -1,15 +1,8 @@
-.page-content{
-    display: flex;
-    justify-content: center;
-    width: 500;
-    min-height: 100%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 .question-index{
     padding: 0px 0 24px 0px;
     border-left:1px solid #E4E6E7;
     width: 783px;
+    min-height: 100%;
 }
 
 .question-index-header{
@@ -45,8 +38,4 @@
     border-bottom:1px solid #D7D9DC;
     width: 100%;
     padding-left: 15px;
-}
-
-html, body, #root, .App {
-	height: 100%;
 }

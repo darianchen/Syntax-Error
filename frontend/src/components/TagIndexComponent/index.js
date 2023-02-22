@@ -14,11 +14,8 @@ const TagIndexComponent = () => {
     }, [])
     return (
         <>
-            <div className="page-content">
-                <LeftSidebar/>
-                <div className="tag-index">
-                    <TagsComponent tags={tags} />
-                </div>
+            <div className="tag-index">
+                <TagsComponent tags={tags} />
             </div>
         </>
     )

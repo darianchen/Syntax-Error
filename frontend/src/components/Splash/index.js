@@ -5,23 +5,23 @@ import QuestionIndex from "../QuestionIndexComponent";
 import './index.css'
 import {SiRedux,SiPostgresql, SiReact} from "react-icons/si"
 import {DiRuby, DiReact} from "react-icons/di";
-import Footer from "../Footer";
+import { useRef } from "react";
 
 const SplashPage = () => {
 
     const sessionUser = useSelector(state => state.session.user)
+    const jobRef = useRef(null);
 
     useEffect (() => {
         const jobs = ["developer", "data scientist", "system admin", "mobile developer", "game developer"];
-        const animationContainer = document.querySelector(".animation-container span");
         let i = 1;
         setInterval( () => {
             if (i >= jobs.length){
                 i = 1;
             }
-            if (animationContainer){
-                animationContainer.innerHTML = jobs[i];
-                animationContainer.classList.add("animation");
+            if (jobRef){
+                jobRef.current.innerHTML = jobs[i];
+                jobRef.current.classList.add("animation");
                 i++;
             }
         }, 2000);
@@ -59,7 +59,7 @@ const SplashPage = () => {
                             </div>
                         </div>
                         <h1 className="animation-container">
-                            Every <span className="job">developer</span> has a
+                            Every <span className="job" ref={jobRef}>developer</span> has a
                             <br/>
                              tab open to <span className="syntaxError">syntaxError</span>
                         </h1>
@@ -89,7 +89,6 @@ const SplashPage = () => {
                         </div>
                     </div>
                 </div>
-                <Footer/>
             </>
         )
     } else{

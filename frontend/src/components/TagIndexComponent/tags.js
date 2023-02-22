@@ -4,8 +4,6 @@ import TagComponent from "./tag";
 
 
 const TagsComponent = ({tags}) => {
-
-
     return (
         <div className="tags-list">
           {tags ? tags.map(tag => (

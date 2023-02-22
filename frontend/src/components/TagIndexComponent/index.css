@@ -1,12 +1,14 @@
 .tags-list {
     display: flex;
     justify-items: space-between;
+    width: 783px;
+    border-left:1px solid #E4E6E7;
+    height: 100%;
   }
   
   .tax-index{
     padding: 0px 0 24px 0px;
-    border-left:1px solid #E4E6E7;
-    width: 783px;
+    background-color: blue;
   }
 
   .tags-item{

@@ -2,8 +2,8 @@
 .signup-page{
     display: flex;
     justify-content: center;
-    margin-top: 180px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    min-height: 100vh;
 }
 
 .content{

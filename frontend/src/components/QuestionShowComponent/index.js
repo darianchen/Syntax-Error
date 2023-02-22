@@ -62,8 +62,6 @@ const QuestionShow = () => {
   if (question) {
     return (
       <>
-        <div className="question-show-container">
-          <LeftSidebar />
           <div className="question-show-content">
             <div className="title-and-button">
               <h1 className="question-title">{question.title}</h1>
@@ -116,7 +114,6 @@ const QuestionShow = () => {
                 Please <a href="/login">login</a> to answer
               </div>
             )}
-          </div>
         </div>
       </>
     );

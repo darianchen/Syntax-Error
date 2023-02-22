@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getQuestions } from "../../store/questions";
-import LeftSidebar from "../LeftSidebarComponent";
 import QuestionItem from "../QuestionItemComponent";
 import './index.css';
 
@@ -27,14 +26,11 @@ const QuestionIndex = () => {
     };
         return(
             <>  
-                <div className="page-content">
-                    <LeftSidebar/>
-                    <div className="question-index">
-                        <div className="question-index-header"><h1>All {questions.length} Questions</h1>
-                            <button onClick={handleClick} className="question-index-button">Ask Question</button>
-                        </div>
-                            {mapQuestions()} 
+                <div className="question-index">
+                    <div className="question-index-header"><h1>All {questions.length} Questions</h1>
+                        <button onClick={handleClick} className="question-index-button">Ask Question</button>
                     </div>
+                    {mapQuestions()} 
                 </div>
             </>
         )
