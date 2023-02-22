@@ -19,7 +19,7 @@ const SplashPage = () => {
             if (i >= jobs.length){
                 i = 1;
             }
-            if (jobRef){
+            if (jobRef && jobRef.current){
                 jobRef.current.innerHTML = jobs[i];
                 jobRef.current.classList.add("animation");
                 i++;

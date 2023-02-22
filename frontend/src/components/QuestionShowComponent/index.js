@@ -36,7 +36,7 @@ const QuestionShow = () => {
         setDisplayName(value.displayName);
       }
     }
-  }, [question]);
+  }, [question, answers]);
 
   useEffect(() => {
     dispatch(fetchQuestions())
@@ -104,7 +104,7 @@ const QuestionShow = () => {
               ""
             )}
 
-            <div className="answer-count">{filteredAnswers.length} Answers</div>
+            <div className="answer-count">{question.answerCount} Answers</div>
             <AnswerIndex />
             {sessionUser ? <AnswerForm questionId={questionId} /> : ""}
             {sessionUser ? (

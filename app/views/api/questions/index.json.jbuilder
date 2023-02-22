@@ -7,5 +7,6 @@
         json.tags_attributes @tags[question.id].each do |tag|
             json.extract! tag, :id, :name
         end
+        json.answer_count question.answers.count
     end
 end

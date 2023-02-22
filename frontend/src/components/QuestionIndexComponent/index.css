@@ -6,11 +6,10 @@
 }
 
 .question-index-header{
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     height: 100px;
     padding-left: 15px;
+    padding-top: 15px;
     border-bottom:1px solid #E4E6E7;
     border-left:1px solid #E4E6E7;
 }
@@ -38,4 +37,11 @@
     border-bottom:1px solid #D7D9DC;
     width: 100%;
     padding-left: 15px;
+}
+
+.dark-button{
+    background-color: #e3e6e8;
+}
+.light-button{
+    background-color: white;
 }
