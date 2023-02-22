@@ -19,13 +19,13 @@ const SplashPage = () => {
             if (i >= jobs.length){
                 i = 1;
             }
-            if (jobRef && jobRef.current){
+            if (jobRef){
                 jobRef.current.innerHTML = jobs[i];
                 jobRef.current.classList.add("animation");
                 i++;
             }
         }, 2000);
-    },[]);
+    });
 
     if (sessionUser === null){
         return(
