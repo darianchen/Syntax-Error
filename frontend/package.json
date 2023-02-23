@@ -13,7 +13,8 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
-    "typewriter-effect": "^2.19.0"
+    "typewriter-effect": "^2.19.0",
+    "use-query-params": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

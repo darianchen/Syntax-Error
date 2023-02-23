@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { deleteQuestion, getQuestion, fetchQuestions } from "../../store/questions";
-import LeftSidebar from "../LeftSidebarComponent";
 import "./index.css";
 import moment from "moment";
 import AnswerForm from "../AnswerFormComponent";
-import { getAnswers } from "../../store/answers";
 import AnswerIndex from "../AnswerIndexComponent";
 import Vote from "../VoteComponent";
-import { getUsers } from "../../store/users";
 import TagsComponent from "../TagIndexComponent/tags.js"
 
 const QuestionShow = () => {
@@ -19,29 +16,7 @@ const QuestionShow = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const { questionId } = useParams();
   const question = useSelector(getQuestion(questionId));
-  const users = useSelector(getUsers).slice();
-  const [displayName, setDisplayName] = useState();
-  const filteredAnswers = [];
-  const answers = useSelector(getAnswers).slice();
-
-  answers.filter((answer) => {
-    if (parseInt(answer.questionId) === parseInt.questionId) {
-      filteredAnswers.push(answer);
-    }
-  });
-
-  useEffect(() => {
-    for (const [key, value] of Object.entries(users)) {
-      if (value.id === question?.authorId) {
-        setDisplayName(value.displayName);
-      }
-    }
-  }, [question, answers]);
-
-  useEffect(() => {
-    dispatch(fetchQuestions())
-  },[])
-
+    
   const handleClick = (e) => {
     if (sessionUser) {
       history.push("/questions/ask")
@@ -75,7 +50,7 @@ const QuestionShow = () => {
             <ul className="stats">
               <li>
                 Asked <span>{moment(question.createdAt).fromNow()}</span> by{" "}
-                <span className="displayName">{displayName}</span>
+                <span className="displayName">{question.author}</span>
               </li>
               <li></li>
             </ul>

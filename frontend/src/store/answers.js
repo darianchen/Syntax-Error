@@ -22,13 +22,14 @@ export const removeAnswer = answerId => ({
 export const getAnswer = answerId => ({answers}) => answers ? answers[answerId] : null;
 export const getAnswers = ({answers}) => answers ? Object.values(answers) : [];
 
+
 export const fetchAnswer = answerId => async dispatch => {
     const res = await csrfFetch(`/api/answers/${answerId}`);
     const data = await res.json();
     dispatch(receiveAnswer(data.answer));
 };
 
-export const fetchAnswers = () => async dispatch => {
+export const fetchAnswers = (questionId) => async dispatch => {
     const res = await csrfFetch(`/api/answers`);
     const data = await res.json();
     dispatch(receiveAnswers(data));

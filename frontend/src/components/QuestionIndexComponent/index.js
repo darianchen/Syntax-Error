@@ -1,15 +1,20 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useQueryParam, StringParam } from "use-query-params";
+import { clearQuestions } from "../../store/questions";
 import QuestionItem from "../QuestionItemComponent";
 import './index.css';
 
 const QuestionIndex = () => {
   const sessionUser = useSelector(state => state.session.user);
   const history = useHistory();
+  const dispatch = useDispatch();
   const [order, setOrder] = useState("Newest");
+  //const [query, setQuery] = useQueryParam('query', StringParam);
   const questions = useSelector(state => orderQuestions(Object.values(state.questions), order));
   
+
   const handleClick = () => {
     if (sessionUser) {
       history.push('/questions/ask');
@@ -17,6 +22,15 @@ const QuestionIndex = () => {
       history.push('/login');
     }
   }
+
+//   useEffect(() => {
+//     dispatch(clearQuestions());
+//     //dispatch(fetchQuestions({ page, search, order }))
+//     //     .catch(() => {
+//     //         history.push("/404");
+//     //     });
+//    }, []);
+
 
   function orderQuestions(questions, order) {
     if (questions) {
@@ -56,7 +70,7 @@ const QuestionIndex = () => {
           {["Least Answered", "Most Answered", "Oldest", "Newest"].map(opt => (
             <button
               key={opt}
-              className={order === opt ? "button-dark" : "button-light"}
+              className={order === opt ? "dark-button" : "light-button"}
               onClick={() => setOrder(opt)}
               style={{height:"39.59px", float:"right", marginTop:"5px"}}
             >

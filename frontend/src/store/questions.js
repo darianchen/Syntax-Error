@@ -3,6 +3,7 @@ import csrfFetch from "./csrf";
 export const RECEIVE_QUESTIONS = "questions/RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "questions/RECEIVE_QUESTION";
 export const REMOVE_QUESTION = "questions/REMOVE_QUESTION";
+const CLEAR_QUESTIONS = 'questions/CLEAR_QUESTIONS';
 
 export const receiveQuestions = questions => ({
     type: RECEIVE_QUESTIONS,
@@ -17,6 +18,10 @@ export const receiveQuestion = question => ({
 export const removeQuestion = questionId => ({
     type: REMOVE_QUESTION,
     questionId
+});
+
+export const clearQuestions = () => ({
+    type: CLEAR_QUESTIONS
 });
 
 export const getQuestion = questionId => ({questions}) => questions ? questions[questionId] : null;
@@ -63,6 +68,8 @@ const questionsReducer = (state= {}, action) => {
         case REMOVE_QUESTION:
             delete nextState[action.questionId];
             return nextState;
+        case CLEAR_QUESTIONS:
+            return {};
         default:
             return state;
     }

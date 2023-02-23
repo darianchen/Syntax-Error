@@ -8,7 +8,6 @@ const AnswerForm = ({questionId}) => {
     const dispatch = useDispatch();
     const [description, setDescription] = useState();
     const author = useSelector(state => state.session.user);   
-    const [errors, setErrors] = useState();
 
     const handleClick = async e => {
         e.preventDefault();
