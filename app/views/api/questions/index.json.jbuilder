@@ -8,5 +8,6 @@
             json.extract! tag, :id, :name
         end
         json.answer_count question.answers.count
+        json.author question.author.display_name
     end
 end

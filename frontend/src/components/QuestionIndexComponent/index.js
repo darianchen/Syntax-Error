@@ -11,7 +11,7 @@ const QuestionIndex = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [order, setOrder] = useState("Newest");
-  //const [query, setQuery] = useQueryParam('query', StringParam);
+  const [query, setQuery] = useQueryParam('query', StringParam);
   const questions = useSelector(state => orderQuestions(Object.values(state.questions), order));
   
 
@@ -30,7 +30,6 @@ const QuestionIndex = () => {
 //     //         history.push("/404");
 //     //     });
 //    }, []);
-
 
   function orderQuestions(questions, order) {
     if (questions) {

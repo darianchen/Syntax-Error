@@ -13,10 +13,10 @@ const QuestionShow = () => {
   window.scrollTo(0, 0);
   const dispatch = useDispatch();
   const history = useHistory();
-  const sessionUser = useSelector((state) => state.session.user);
   const { questionId } = useParams();
+  const sessionUser = useSelector((state) => state.session.user);
   const question = useSelector(getQuestion(questionId));
-    
+
   const handleClick = (e) => {
     if (sessionUser) {
       history.push("/questions/ask")
@@ -78,8 +78,7 @@ const QuestionShow = () => {
             ) : (
               ""
             )}
-
-            <div className="answer-count">{question.answerCount} Answers</div>
+            <div className="answer-count">{question.answerCount} answer{question.answerCount === 1 ? "" : "s"}</div>
             <AnswerIndex />
             {sessionUser ? <AnswerForm questionId={questionId} /> : ""}
             {sessionUser ? (
