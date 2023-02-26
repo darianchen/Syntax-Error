@@ -13,7 +13,6 @@ import TagIndexComponent from "./components/TagIndexComponent";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "./store/users";
 import QuestionEditForm from "./components/QuestionEditFormComponent";
-import { fetchQuestions } from "./store/questions";
 import AnswerEditForm from "./components/AnswerEditFormComponent";
 import { fetchAnswers } from "./store/answers";
 import LeftSidebar from "./components/LeftSidebarComponent";
@@ -23,7 +22,6 @@ function App() {
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchQuestions());
     dispatch(fetchUsers());
     dispatch(fetchAnswers());
   },[])

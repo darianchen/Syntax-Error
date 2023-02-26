@@ -7,6 +7,10 @@ class Api::QuestionsController < ApplicationController
       tags = Tag.where(id: taggings.pluck(:tag_id))
       @tags[question.id] = tags
     end
+    # pagination
+    page = 1
+    page = params[:page].to_i unless params[:page] == "undefined" || params[:page] == "null"
+    @questions = @questions.paginate(page: page, per_page: 15)
     render :index
   end
 
@@ -33,7 +37,7 @@ class Api::QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     if @question
-      render :show
+      render Json: @question
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end

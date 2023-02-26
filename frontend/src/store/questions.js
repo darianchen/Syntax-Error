@@ -33,8 +33,8 @@ export const fetchQuestion = questionId => async dispatch => {
     dispatch(receiveQuestion(data.question));
 };
 
-export const fetchQuestions = () => async dispatch => {
-    const res = await csrfFetch(`/api/questions`);
+export const fetchQuestions = (page) => async dispatch => {
+    const res = await csrfFetch(`/api/questions?page=${page}`);
     const data = await res.json();
     dispatch(receiveQuestions(data));
 };
@@ -61,7 +61,7 @@ const questionsReducer = (state= {}, action) => {
     const nextState = {...state};
     switch (action.type) {
         case RECEIVE_QUESTIONS:
-            return {...state, ...action.questions};
+            return {...action.questions};
         case RECEIVE_QUESTION:
             nextState[action.question.id] = action.question;
             return nextState;

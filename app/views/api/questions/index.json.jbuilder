@@ -9,5 +9,6 @@
         end
         json.answer_count question.answers.count
         json.author question.author.display_name
+        json.total_pages @questions.total_pages
     end
 end
