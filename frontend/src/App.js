@@ -11,7 +11,6 @@ import QuestionIndex from "./components/QuestionIndexComponent";
 import QuestionForm from "./components/QuestionFormComponent";
 import TagIndexComponent from "./components/TagIndexComponent";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "./store/users";
 import QuestionEditForm from "./components/QuestionEditFormComponent";
 import AnswerEditForm from "./components/AnswerEditFormComponent";
 import { fetchAnswers } from "./store/answers";
@@ -20,11 +19,10 @@ import Footer from "./components/Footer";
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchUsers());
-    dispatch(fetchAnswers());
-  },[])
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchAnswers());
+  // },[])
 
   return (
     <>

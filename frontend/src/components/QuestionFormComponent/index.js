@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import csrfFetch from "../../store/csrf";
@@ -6,7 +6,6 @@ import { fetchQuestions } from "../../store/questions";
 import './index.css'
 
 const QuestionForm = () => {
-     
     const [title, setTitle] = useState();
     const [body, setBody] = useState();
     const [tags, setTags] = useState([]);
@@ -33,7 +32,7 @@ const QuestionForm = () => {
             let data = await res.json();
             dispatch(fetchQuestions());
             history.push(`${data.question.id}`);
-        } 
+        }
     };
 
     const handleKeyDown = (e) => {

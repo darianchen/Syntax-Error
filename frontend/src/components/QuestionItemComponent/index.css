@@ -16,11 +16,22 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    height: 69px;
-    width: 108px;
-    margin-right: 16px;
+    height: min-content;
+    width: max-content;
+    margin-right: 20px;
     margin-bottom: 4px;
     color: #6A737C;
+}
+
+.question-index-votes{
+    width: 100px;
+    margin-bottom: 15px;
+    text-align: end;
+}
+
+.question-index-answers{
+    width: 100px;
+    text-align: end;
 }
 
 .question-listing-title{
@@ -35,8 +46,6 @@
 }
 
 .question-content-summary-bottom{
-    /* position: absolute;
-    bottom: 0%; */
     width: 595px;
     height: 38.594px;
 }

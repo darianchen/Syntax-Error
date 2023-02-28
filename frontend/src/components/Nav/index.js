@@ -16,7 +16,7 @@ const Navbar = () => {
 
     const handleSearch = e => {
         e.preventDefault();
-        history.push(`/questions/search?q=${query.replaceAll(" ", "+")}`);
+        history.push(`/questions?search=${query.replaceAll(" ", "+")}`);
     };
 
     const handleLogOut = () => {

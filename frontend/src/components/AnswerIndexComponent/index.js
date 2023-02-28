@@ -15,9 +15,9 @@ const AnswerIndex = () => {
             filteredAnswers.push(answer);
         }
     })
-       
+
     useEffect(() => {
-         dispatch(fetchAnswers())       
+        dispatch(fetchAnswers())
     }, []);
 
 

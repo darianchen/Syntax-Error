@@ -24,7 +24,7 @@ export const clearQuestions = () => ({
     type: CLEAR_QUESTIONS
 });
 
-export const getQuestion = questionId => ({questions}) => questions ? questions[questionId] : null;
+export const getQuestion = questionId => ({questions}) => questions ? Object.values(questions).find(question => question.id === parseInt(questionId)) : null;
 export const getQuestions = ({questions}) => questions ? Object.values(questions) : [];
 
 export const fetchQuestion = questionId => async dispatch => {
@@ -33,8 +33,14 @@ export const fetchQuestion = questionId => async dispatch => {
     dispatch(receiveQuestion(data.question));
 };
 
-export const fetchQuestions = (page) => async dispatch => {
-    const res = await csrfFetch(`/api/questions?page=${page}`);
+export const fetchQuestions = (page, order, search, tag) => async dispatch => {
+    const res = await csrfFetch(`/api/questions?page=${page}&&order=${order}&&search=${search}&&tag=${tag}`);
+    const data = await res.json();
+    dispatch(receiveQuestions(data));
+};
+
+export const fetchAllQuestions = () => async dispatch => {
+    const res = await csrfFetch(`/api/questions?all=true`);
     const data = await res.json();
     dispatch(receiveQuestions(data));
 };

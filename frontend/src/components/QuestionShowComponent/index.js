@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { deleteQuestion, getQuestion, fetchQuestions } from "../../store/questions";
+import { deleteQuestion, getQuestion, fetchAllQuestions } from "../../store/questions";
 import "./index.css";
 import moment from "moment";
 import AnswerForm from "../AnswerFormComponent";
@@ -17,6 +17,13 @@ const QuestionShow = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const question = useSelector(getQuestion(questionId));
 
+  // useEffect(() => {
+  //   dispatch(fetchAllQuestions())
+  //     .catch(() => {
+  //       history.push("/404");
+  //   });
+  // },[])
+
   const handleClick = (e) => {
     if (sessionUser) {
       history.push("/questions/ask")
@@ -31,7 +38,7 @@ const QuestionShow = () => {
   };
 
   const dispatchQuestion = () => {
-    dispatch(fetchQuestions())
+    dispatch(fetchAllQuestions())
   }
 
   if (question) {
@@ -78,6 +85,7 @@ const QuestionShow = () => {
             ) : (
               ""
             )}
+            {console.log(question.answerCount)}
             <div className="answer-count">{question.answerCount} answer{question.answerCount === 1 ? "" : "s"}</div>
             <AnswerIndex />
             {sessionUser ? <AnswerForm questionId={questionId} /> : ""}

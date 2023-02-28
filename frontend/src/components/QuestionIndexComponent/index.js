@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useQueryParam, StringParam } from "use-query-params";
+import { clearQuestions } from "../../store/questions";
 import QuestionItem from "../QuestionItemComponent";
 import { fetchQuestions } from "../../store/questions";
 import Pagination from 'react-rails-pagination';
@@ -15,8 +16,9 @@ const QuestionIndex = () => {
   const [order, setOrder] = useState("Newest");
   const questions = useSelector(getQuestions).slice();
   const [page, setPage] = useQueryParam('page', StringParam);
+  const [search, setSearch] = useQueryParam('search', StringParam);
+  const [tag, setTag] = useQueryParam('tag', StringParam);
   const [totalPages, setTotalPages] = useState(1);
-  
 
   const handleClick = () => {
     if (sessionUser) {
@@ -29,53 +31,17 @@ const QuestionIndex = () => {
   useEffect(() => {
     if (page === undefined || page === "undefined")
       setPage(1);
-    dispatch(fetchQuestions(page))
+    dispatch(clearQuestions());
+    dispatch(fetchQuestions(page, order, search, tag))
       .catch(() => {
           history.push("/404");
       });
-  }, []);
+  }, [search, tag]);
 
   useEffect(() => {
     if (questions.length > 0)
       setTotalPages(questions[0].totalPages)
   }, [questions])
-
-//   function orderQuestions(questions, order) {
-//     if (questions) {
-//       const orderFunc = (a, b) => {
-//         switch (order) {
-//           case "Newest":
-//             return new Date(b.createdAt) - new Date(a.createdAt);
-//           case "Oldest":
-//             return new Date(a.createdAt) - new Date(b.createdAt);
-//           case "Most Answered":
-//             return b.answerCount - a.answerCount;
-//           case "Least Answered":
-//             return a.answerCount - b.answerCount;
-//           default:
-//             return 0;
-//         }
-//       };
-//       return questions.sort(orderFunc);
-//     }
-//     return questions;
-//   };
-
-const handleChangePage = (currentPage) => {
-    setPage(parseInt(currentPage));
-    dispatch(fetchQuestions(page))
-      .catch(() => {
-        history.push("/404");
-    });
-
-    if (questions.length > 0)
-      setTotalPages(questions[0].totalPages)
-  };
-
-  const handleChangeOrder = (order) => {
-    setOrder(order);
-  }
-
 
   const mapQuestions = () => (
     questions.map(question => (
@@ -83,11 +49,31 @@ const handleChangePage = (currentPage) => {
     ))
   );
 
+  const handleChangePage = (currentPage) => {
+    setPage(parseInt(currentPage));
+    dispatch(fetchQuestions(currentPage, order, search, tag))
+      .catch(() => {
+        history.push("/404");
+    });
+  };
+
+  const handleChangeOrder = (order) => {
+    setOrder(order);
+    setPage(1)
+    dispatch(fetchQuestions(1, order, search, tag))
+      .catch(() => {
+        history.push("/404");
+    });
+  }
+
   return (
     <div className="question-index">
       <div className="question-index-header">
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <h1>All Questions</h1>
+          <div>
+            <h1>{tag !== undefined ? `Questions tagged [${tag}]` : (search !== undefined ? `Search Results` : 'All Questions')}</h1>
+            {search !== undefined ? <h4 style={{marginTop: '5px', color: 'gray'}}>Result for {search}</h4> : <h4></h4>}
+          </div>
           <button onClick={handleClick} className="question-index-button">Ask Question</button>
         </div>
         <div className="filter-buttons">
@@ -104,7 +90,9 @@ const handleChangePage = (currentPage) => {
         </div>
       </div>
       {mapQuestions()}
-      <Pagination page={parseInt(page)} pages={totalPages} handleChangePage={handleChangePage} />
+      <div style={{marginLeft:"50px"}}>
+        <Pagination page={parseInt(page)} pages={totalPages} handleChangePage={handleChangePage} />
+      </div>
     </div>
   );
 };

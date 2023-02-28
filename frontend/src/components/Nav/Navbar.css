@@ -41,15 +41,13 @@
     display: flex;
 }
 
-::placeholder{
-    padding-left: 25px;
-}
-
 .nav-search{
     width: 400px;
     margin-right: 10px;
     height: 33px;
     margin-bottom: 4px;
+    padding-left: 25px;
+    margin-right: 40px;
 }
 
 .magnifying-glass{
@@ -58,8 +56,6 @@
     right: auto;
     margin-top: 3px;
     margin-left: 5px;
-
-
 }
 
 .login{

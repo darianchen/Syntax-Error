@@ -5,7 +5,7 @@ import moment from 'moment';
 import { deleteAnswer } from "../../store/answers";
 import { fetchAnswers } from "../../store/answers";
 import Vote from "../VoteComponent";
-import { getUser } from "../../store/users";
+import { fetchAllQuestions } from "../../store/questions";
 
 const AnswerItem = ({answer}) => {
     const dispatch = useDispatch();
@@ -14,6 +14,7 @@ const AnswerItem = ({answer}) => {
     const date = moment(createdAt).fromNow()
     const handleClick = () => {
         dispatch(deleteAnswer(id))
+        dispatch(fetchAllQuestions())
     }
 
     const dispatchAnswer = () => {
