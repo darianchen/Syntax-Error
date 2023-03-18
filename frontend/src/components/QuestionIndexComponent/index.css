@@ -24,6 +24,7 @@
     user-select: none;
     border: 1.5px solid #0a95ff;
     box-shadow: inset 0 0.3px 0 0 white;
+    font-weight: 500;
 }
 
 .question-index-button:hover{
@@ -44,4 +45,19 @@
 }
 .light-button{
     background-color: white;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.filter-buttons > button {
+    margin-left: 10px;
+    padding: 10px;
+    box-shadow: 0 8px 8px 0 #e4e6e7;
+    border: 1px solid #c9d3db;
+    border-radius: 3px;
 }
