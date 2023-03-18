@@ -19,6 +19,7 @@ const QuestionIndex = () => {
   const [search, setSearch] = useQueryParam('search', StringParam);
   const [tag, setTag] = useQueryParam('tag', StringParam);
   const [totalPages, setTotalPages] = useState(1);
+  const defaultPage = 1;
 
   const handleClick = () => {
     if (sessionUser) {
@@ -34,14 +35,14 @@ const QuestionIndex = () => {
     dispatch(clearQuestions());
     dispatch(fetchQuestions(page, order, search, tag))
       .catch(() => {
-          history.push("/404");
+          history.push("/NotFound");
       });
   }, [search, tag]);
 
   useEffect(() => {
     if (questions.length > 0)
       setTotalPages(questions[0].totalPages)
-  }, [questions])
+  }, [questions, setTotalPages])
 
   const mapQuestions = () => (
     questions.map(question => (
@@ -53,7 +54,7 @@ const QuestionIndex = () => {
     setPage(parseInt(currentPage));
     dispatch(fetchQuestions(currentPage, order, search, tag))
       .catch(() => {
-        history.push("/404");
+        history.push("/NotFound");
     });
   };
 
@@ -62,7 +63,7 @@ const QuestionIndex = () => {
     setPage(1)
     dispatch(fetchQuestions(1, order, search, tag))
       .catch(() => {
-        history.push("/404");
+        history.push("/NotFound");
     });
   }
 
@@ -91,7 +92,7 @@ const QuestionIndex = () => {
       </div>
       {mapQuestions()}
       <div style={{marginLeft:"50px"}}>
-        <Pagination page={parseInt(page)} pages={totalPages} handleChangePage={handleChangePage} />
+        <Pagination page={page ? parseInt(page) : defaultPage } pages={totalPages} handleChangePage={handleChangePage} />
       </div>
     </div>
   );
