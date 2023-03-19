@@ -72,7 +72,7 @@ const QuestionIndex = () => {
       <div className="question-index-header">
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
-            <h1>{tag !== undefined ? `Questions tagged [${tag}]` : (search !== undefined ? `Search Results` : 'All Questions')}</h1>
+            <h1>{tag !== undefined ? `Questions tagged [${tag}]` : (search !== undefined ? `Search Results` : `${order} Questions`)}</h1>
             {search !== undefined ? <h4 style={{marginTop: '5px', color: 'gray'}}>Result for {search}</h4> : <h4></h4>}
           </div>
           <button onClick={handleClick} className="question-index-button">Ask Question</button>

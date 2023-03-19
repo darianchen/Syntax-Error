@@ -15,7 +15,6 @@
     height: 90px;
 }
 
-
 .question-show-ask-question-button{
     max-height: 37.7812px;
     width: 103.016px;
@@ -89,4 +88,8 @@
 .question-tags{
     margin-top: 30px;
     margin-left: 30px;
+}
+
+.title-and-button button{
+    min-width: 103px;
 }
