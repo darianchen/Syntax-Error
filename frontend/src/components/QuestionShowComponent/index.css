@@ -4,8 +4,9 @@
 .question-show-content{
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     border-left: 2px solid #E4E6E7;
-    width: 762px;
+    width: 763px;
     padding: 24px;
+    min-height: 100%;
 }
 
 .title-and-button{
