@@ -22,25 +22,25 @@ const NotFoundPage = () => {
   };
 
   return (
-    <div className="container">
-      <button type="button" onClick={redirectHandler} className="home-button">Go to the Homepage</button>
-      <div className="content">
-        <h1 className="first-four">4</h1>
-        <div className="cog-wheel1">
-          <div className="cog1">
-            <div className="top" />
-            <div className="down" />
-            <div className="left-top" />
-            <div className="left-down" />
-            <div className="right-top" />
-            <div className="right-down" />
-            <div className="left" />
-            <div className="right" />
+    <div id="not-found-container">
+      <button type="button" onClick={redirectHandler} id="home-button">Go to the Homepage</button>
+      <div id="not-found-content">
+        <h1 id="first-four">4</h1>
+        <div id="cog-wheel1">
+          <div id="cog1">
+            <div id="top" />
+            <div id="down" />
+            <div id="left-top" />
+            <div id="left-down" />
+            <div id="right-top" />
+            <div id="right-down" />
+            <div id="left" />
+            <div id="right" />
           </div>
         </div>     
-        <h1 className="second-four">4</h1>
+        <h1 id="second-four">4</h1>
       </div>
-      <p className="wrong-para">OOPS! Page Not found!</p>
+      <p id="wrong-para">OOPS! Page Not found!</p>
     </div>
   );
 };

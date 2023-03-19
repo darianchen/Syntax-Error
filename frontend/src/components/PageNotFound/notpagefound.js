@@ -4,7 +4,7 @@ const t1 = gsap.timeline();
 const t2 = gsap.timeline();
 const t3 = gsap.timeline();
 
-t1.to('.cog1', {
+t1.to('#cog1', {
   transformOrigin: '50% 50%',
   rotation: '+=360',
   repeat: -1,
@@ -12,7 +12,7 @@ t1.to('.cog1', {
   duration: 8,
 });
 
-t2.to('.cog2', {
+t2.to('#cog2', {
   transformOrigin: '50% 50%',
   rotation: '-=360',
   repeat: -1,
@@ -21,7 +21,7 @@ t2.to('.cog2', {
 });
 
 t3.fromTo(
-  '.wrong-para',
+  '#wrong-para',
   {
     opacity: 0,
   },
