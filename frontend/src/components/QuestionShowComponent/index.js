@@ -17,12 +17,12 @@ const QuestionShow = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const question = useSelector(getQuestion(questionId));
 
-  // useEffect(() => {
-  //   dispatch(fetchAllQuestions())
-  //     .catch(() => {
-  //       history.push("/404");
-  //   });
-  // },[])
+  useEffect(() => {
+    dispatch(fetchAllQuestions())
+      .catch(() => {
+        history.push("/NotFound");
+    });
+  },[dispatch])
 
   const handleClick = (e) => {
     if (sessionUser) {
@@ -85,7 +85,6 @@ const QuestionShow = () => {
             ) : (
               ""
             )}
-            {console.log(question.answerCount)}
             <div className="answer-count">{question.answerCount} answer{question.answerCount === 1 ? "" : "s"}</div>
             <AnswerIndex />
             {sessionUser ? <AnswerForm questionId={questionId} /> : ""}

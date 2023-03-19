@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Route, Switch } from 'react-router-dom'
 import LoginFormPage from "./components/LoginFormComponent";
 import Navbar from "./components/Nav";
@@ -10,19 +9,15 @@ import QuestionShow from "./components/QuestionShowComponent";
 import QuestionIndex from "./components/QuestionIndexComponent";
 import QuestionForm from "./components/QuestionFormComponent";
 import TagIndexComponent from "./components/TagIndexComponent";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import QuestionEditForm from "./components/QuestionEditFormComponent";
 import AnswerEditForm from "./components/AnswerEditFormComponent";
-import { fetchAnswers } from "./store/answers";
 import LeftSidebar from "./components/LeftSidebarComponent";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer"; 
+import NotFoundPage from "./components/PageNotFound";
 
 function App() {
   const sessionUser = useSelector(state => state.session.user);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchAnswers());
-  // },[])
 
   return (
     <>
@@ -75,7 +70,10 @@ function App() {
 
           <Route exact path="/answers/:answerId/edit">
               <AnswerEditForm/>
-          </Route>     
+          </Route>
+          <Route path="*">
+            <NotFoundPage />
+          </Route>
       </Switch>
       </div>
       <Footer/>
