@@ -5,6 +5,5 @@
             json.extract! vote, :id, :post_id, :voter_id, :vote
         end
         json.answerer answer.user.display_name
-        json.title answer.question.title
     end
 end

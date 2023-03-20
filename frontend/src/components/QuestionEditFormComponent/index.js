@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {  useHistory, useParams } from "react-router-dom";
-import { getQuestion, updateQuestion, fetchQuestions } from "../../store/questions";
+import { getQuestion, updateQuestion, fetchQuestions, fetchQuestion } from "../../store/questions";
 
 const QuestionEditForm = () => {
     const dispatch = useDispatch();
@@ -13,6 +13,13 @@ const QuestionEditForm = () => {
     const now = new Date();
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
+
+    useEffect(() => {
+      dispatch(fetchQuestion(questionId))
+        .catch(() => {
+          history.push("/NotFound");
+      });
+    },[dispatch])
 
     useEffect(() => {
         if (question) {
@@ -41,7 +48,6 @@ const QuestionEditForm = () => {
         history.push(`/questions/${question.id}`);
     };
 
-
     const handleKeyDown = (e) => {
         if(e.code !== 'Space') return
         const value = e.target.value.trim();
@@ -54,91 +60,93 @@ const QuestionEditForm = () => {
         setTags(tags.filter((el, i) => i !== index))
     }
 
-    return(
-        <>
-            <div className="container">
-                <div id="content">
-                    <div className='header'>
-                        <div className="headline">Edit a public question</div>
-                    </div>
-                    <div className="question-and-draft">
-                        <form id="question-form">
-                            <div className="title-box">
-                                <label className="title label">
-                                    Title
-                                </label>
-                                <p className="title-text">
-                                    Be Specific and imagine you're asking a question to another person
-                                </p>
-                                <input className="input-form" onChange={e => setTitle(e.target.value)} placeholder="e.g Is there an R function for finding the index of an element in a vector?" value={title}></input>
-                            </div>
-                            <div className="body-box">
-                                <label className="body label">
-                                    Body
-                                </label>
-                                <div className="body-text">
-                                    Include all the information someone would need to answer your question
-                                </div>
-                                <textarea value={body} onChange={e => setBody(e.target.value)}>
-                                </textarea>
-                            </div>
-
-                            <div className="label-box">
-                                <label className="tags label">
-                                    Tags
-                                </label>
-                                <p className="label-text">
-                                    Add up to 5 tags to describe what your question is about.
-                                </p>
-                                <div className="tags-input-container"> 
-                                {tags.map((tag,index) => (
-                                    <div className="tag-item" key={index}>
-                                        <span className="tag-text">{tag}</span>
-                                        <span className="tag-close" onClick={() => removeTag(index)}>&times;</span>
-                                    </div>
-                                ))}
-                                <input className="tags-input" onKeyDown={handleKeyDown}placeholder="e.g. (spring vba arrays)"></input>
-                                </div>
-                            </div>
-                        </form>
-
-                        <aside className="steps-container">
-                            <div className="steps-title">
-                                Draft your question
-                            </div>
-                            <div className="steps">
-                                <div className="steps-info">
-                                    <p>
-                                        The community is here to help you with
-                                        specific coding, algorithm, or language
-                                        problems.
+    if(question) {
+        return(
+            <>
+                <div className="container">
+                    <div id="content">
+                        <div className='header'>
+                            <div className="headline">Edit a public question</div>
+                        </div>
+                        <div className="question-and-draft">
+                            <form id="question-form">
+                                <div className="title-box">
+                                    <label className="title label">
+                                        Title
+                                    </label>
+                                    <p className="title-text">
+                                        Be Specific and imagine you're asking a question to another person
                                     </p>
-                                    <br />
-                                    <p>Avoid asking opinion-based questions.</p>
+                                    <input className="input-form" onChange={e => setTitle(e.target.value)} placeholder="e.g Is there an R function for finding the index of an element in a vector?" value={title}></input>
                                 </div>
-                                <ul className="instructions">
-                                    <li>
-                                        <span className="number">1.</span>
-                                        <span className="step-text"> Summarize the problem.</span>
-                                    </li>
-                                    <li>
-                                        <span className="number">2.</span>
-                                        <span className="step-text"> Describe what you've tried.</span>
-                                    </li>
-                                    <li>
-                                        <span className="number">3.</span> 
-                                        <span className="step-text"> Show some code.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </aside>
+                                <div className="body-box">
+                                    <label className="body label">
+                                        Body
+                                    </label>
+                                    <div className="body-text">
+                                        Include all the information someone would need to answer your question
+                                    </div>
+                                    <textarea value={body} onChange={e => setBody(e.target.value)}>
+                                    </textarea>
+                                </div>
 
+                                <div className="label-box">
+                                    <label className="tags label">
+                                        Tags
+                                    </label>
+                                    <p className="label-text">
+                                        Add up to 5 tags to describe what your question is about.
+                                    </p>
+                                    <div className="tags-input-container"> 
+                                    {tags.map((tag,index) => (
+                                        <div className="tag-item" key={index}>
+                                            <span className="tag-text">{tag}</span>
+                                            <span className="tag-close" onClick={() => removeTag(index)}>&times;</span>
+                                        </div>
+                                    ))}
+                                    <input className="tags-input" onKeyDown={handleKeyDown}placeholder="e.g. (spring vba arrays)"></input>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <aside className="steps-container">
+                                <div className="steps-title">
+                                    Draft your question
+                                </div>
+                                <div className="steps">
+                                    <div className="steps-info">
+                                        <p>
+                                            The community is here to help you with
+                                            specific coding, algorithm, or language
+                                            problems.
+                                        </p>
+                                        <br />
+                                        <p>Avoid asking opinion-based questions.</p>
+                                    </div>
+                                    <ul className="instructions">
+                                        <li>
+                                            <span className="number">1.</span>
+                                            <span className="step-text"> Summarize the problem.</span>
+                                        </li>
+                                        <li>
+                                            <span className="number">2.</span>
+                                            <span className="step-text"> Describe what you've tried.</span>
+                                        </li>
+                                        <li>
+                                            <span className="number">3.</span> 
+                                            <span className="step-text"> Show some code.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </aside>
+
+                        </div>
+                        <button className="submit-question" onClick={handleSubmit}>Update Question</button>
                     </div>
-                    <button className="submit-question" onClick={handleSubmit}>Update Question</button>
-                </div>
-            </div>     
-        </>
-    )
+                </div>     
+            </>
+        )
+    }
 };
 
 export default QuestionEditForm;
