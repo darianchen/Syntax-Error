@@ -1,11 +1,13 @@
-# README
-#syntaxError-Stack-Overflow-Clone-Project
+# syntaxError - Stack Overflow Inspired Application
 
-Background - The Numbers and The Reasons:
+Live link: https://syntaxerror-fsapp.herokuapp.com/
 
-syntaxError is public question and answer platform based on the popular forum Stack Overflow. Its name is based off the common programming error syntax error.
+syntaxError is a Stack Overflow inspired full-stack application. Users can post questions and answers related to programming. It serves as a forum for developers to share their expertise and aid those who are having coding issues. In addition to posting, users can also cast votes for the top answers, search questions, and even add tags to describe the topic of their question. Come join syntaxError now!
 
-Functionality & MVPs
-
-Technologies, Libraries, APIs
-ReactJS, Redux, Ruby on Rails, PostGreSQL
+## Technologies and Libraries Used:
+- React/Redux
+- Ruby on Rails
+- JavaScript
+- Ruby
+- PostgreSQL
+- Moment.js
